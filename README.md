@@ -63,3 +63,6 @@ curl http://localhost:8080/actuator
 
 ### Conclusion
 If the `/actuator` endpoint does not return the expected list of endpoints, double-check your configuration and ensure the application is running correctly. If you need further assistance, let me know!
+
+
+https://github.com/containers/podman-compose/blob/main/examples/awx3/docker-compose.yml

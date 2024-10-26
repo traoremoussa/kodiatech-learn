@@ -7,10 +7,10 @@ import com.kodiatech.etudiant.manager.service.impl.StudentServiceImpl;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Repository;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,8 +19,12 @@ import java.util.List;
 public class StudentController {
     private final Logger LOG = LoggerFactory.getLogger(getClass());
 
-@Autowired
-    private  IStudentService studentService;
+
+    private final  IStudentService studentService;
+
+    public StudentController(IStudentService studentService) {
+        this.studentService = studentService;
+    }
 
 
     @GetMapping()
@@ -34,4 +38,9 @@ public class StudentController {
 
         return ResponseEntity.ok().body(studentService.getStudents());
 }
+    @PostMapping
+    @ResponseStatus(HttpStatus.CREATED)
+    public Student createStudent(@RequestBody Student student){
+        return studentService.saveStudent(student);
+    }
 }

@@ -12,6 +12,7 @@
 
   <modules>
     <module>kodiatech-etudiant-manager</module>
+    <module>kodiateck-commun</module>
   </modules>
 
 

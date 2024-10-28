@@ -11,6 +11,8 @@
 
 
     <artifactId>kodiactech-desktop-app</artifactId>
+
+    <!-- PACKAGING  ear, war, jar   -->
     <name>Archetype - kodiactech-desktop-app</name>
     <url>http://maven.apache.org</url>
 </project>

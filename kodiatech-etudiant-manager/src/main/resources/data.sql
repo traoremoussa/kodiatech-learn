@@ -15,5 +15,3 @@ INSERT INTO USER_ROLE(USER_ID,ROLE_ID) VALUES (3,2);
 
 COMMIT;
 
-https://bnguimgo.developpez.com/tutoriels/spring/services-rest-avec-springboot-et-spring-resttemplate/?page=premiere-partie-le-serveur
-https://guide-angular.wishtack.io/angular/http

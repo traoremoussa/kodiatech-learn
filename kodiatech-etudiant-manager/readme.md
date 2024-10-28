@@ -92,3 +92,9 @@ public class Department {
 In summary, for a basic student management system, you would typically have at least **4-5 entities** (Student, Course, Enrollment, Instructor, and optionally Department) with the relationships outlined. Adjust the entities and relationships based on your specific requirements.
 
 If you have specific features in mind or need further details, feel free to ask!
+
+
+https://bnguimgo.developpez.com/tutoriels/spring/services-rest-avec-springboot-et-spring-resttemplate/?page=premiere-partie-le-serveur
+https://guide-angular.wishtack.io/angular/http
+
+https://github.com/oburakcinar/Student-Management-System/tree/main

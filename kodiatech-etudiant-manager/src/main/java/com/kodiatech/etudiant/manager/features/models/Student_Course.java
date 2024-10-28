@@ -1,4 +1,4 @@
-package com.kodiatech.etudiant.manager.models;
+package com.kodiatech.etudiant.manager.features.models;
 
 
 import jakarta.persistence.*;

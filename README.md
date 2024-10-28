@@ -48,8 +48,8 @@ When you access the `/actuator` endpoint, you should see a JSON response that li
     "shutdown": {
       "href": "http://localhost:8080/actuator/shutdown",
       "templated": false
-    },
-    // Other endpoints...
+    }
+   
   }
 }
 ```
@@ -66,3 +66,4 @@ If the `/actuator` endpoint does not return the expected list of endpoints, doub
 
 
 https://github.com/containers/podman-compose/blob/main/examples/awx3/docker-compose.yml
+(`https://howtodoinjava.com/spring-boot2/sb-multi-module-maven-project/ `)

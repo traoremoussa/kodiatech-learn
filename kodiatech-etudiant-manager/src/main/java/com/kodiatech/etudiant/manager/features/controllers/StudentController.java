@@ -1,18 +1,13 @@
-package com.kodiatech.etudiant.manager.controllers;
+package com.kodiatech.etudiant.manager.features.controllers;
 
-import com.kodiatech.etudiant.manager.models.Student;
-import com.kodiatech.etudiant.manager.repository.StudentRepository;
-import com.kodiatech.etudiant.manager.service.IStudentService;
-import com.kodiatech.etudiant.manager.service.impl.StudentServiceImpl;
+import com.kodiatech.etudiant.manager.features.models.Student;
+import com.kodiatech.etudiant.manager.features.service.IStudentService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Repository;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @RestController //for rest

@@ -84,18 +84,23 @@ For modern Spring Boot applications, it is recommended to use `@SpringBootTest` 
 
 ### Bean 
 
-- `@RunWith(SpringRunner.class)`
-- `@SpringBootTest`
-- `@ExtendWith(MockitoExtension.class)`
-- `@AutoConfigureMockMvc`
-- `@DataJpaTest`
-- `@AutoConfigureTestDatabase(replace = Replace.NONE)`
-- `@TestConfiguration`
-- `@Import(TestEmployeeServiceConfig.class)` importer la config
-- `@ActiveProfiles({"test","dev"})`
-- `RestTemplate`
+- ` @MockBean`
+- `@Mock`
+- `@MockMvc`
+- `@Spy`
+- # dans teste integration on pas utilise mock (services)
+-   @Autowired
+- assertNotNull
+- assertTrue
+- assertEquals
+- @Before
+- @Test
 
-
+### Mehtode d'invocation
+- ` verify`
+- `when`
+- `thenReturn`
+- `@Spy`
 ### Summary
 
 - **@Mock**: Use for creating mock objects in unit tests without a Spring context.

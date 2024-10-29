@@ -26,6 +26,7 @@
     <module>kodiateck-commun</module>
       <module>kodiactech-desktop-app</module>
     <module>kodiatech-learn-batch</module>
+    <module>kodiatech-kafka</module>
   </modules>
 
 

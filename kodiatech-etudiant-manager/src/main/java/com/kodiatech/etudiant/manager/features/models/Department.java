@@ -28,11 +28,11 @@ public class Department {
     //je peux passer par departement pour atteindre les listes de de teacher ou student
 
     @JsonIgnore
-    @OneToMany(mappedBy = "department")
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "department")
     private Collection<Student> students = new ArrayList<>();
 
     @JsonIgnore
-    @OneToMany(mappedBy = "department")
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "department")
     private Collection<Teacher> teachers = new ArrayList<>();
 
 }

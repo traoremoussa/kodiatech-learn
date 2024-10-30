@@ -27,6 +27,7 @@ public class Course {
 
     @ManyToOne
     private Teacher teacher;
+
     @ManyToMany(mappedBy = "courses")  // Indique que c'est le côté inverse de la relation
     private Set<Student> students = new HashSet<>();
 

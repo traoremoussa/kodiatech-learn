@@ -41,6 +41,7 @@ public class Teacher {
     private LocalDate enrollmentDate;
 
 
-    @ManyToOne(cascade = { CascadeType.PERSIST, CascadeType.MERGE} )
+    @ManyToOne(fetch = FetchType.LAZY, cascade = { CascadeType.PERSIST, CascadeType.MERGE} )
+    @JoinColumn(name = "department_id")// cle etrangere ref id dep
     private Department department;
 }

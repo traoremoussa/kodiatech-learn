@@ -74,4 +74,12 @@ public class Student {
 
 
 
+
+    /**
+    SQL AST Tree:
+
+       The SQL Abstract Syntax Tree (AST) indicates how the query will be structured.
+      The FromClause shows that it will select from the Student table,
+     and it includes a join with the address and a left join with the department.
+     */
 }

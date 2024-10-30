@@ -1,6 +1,6 @@
 package com.kodiatech.etudiant.manager.features.service.impl;
 
-import com.kodiatech.etudiant.manager.exceptions.ManagerEtudiantException;
+import com.kodiatech.etudiant.manager.features.exceptions.ManagerEtudiantException;
 import com.kodiatech.etudiant.manager.features.models.Student;
 import com.kodiatech.etudiant.manager.features.repository.StudentRepository;
 import com.kodiatech.etudiant.manager.features.service.IStudentService;

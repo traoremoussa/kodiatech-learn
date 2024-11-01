@@ -10,4 +10,7 @@ public interface IStudentService {
     public Student addStudent(Student student);
     public Student updateStudent(Long id, Student student);
     public void deleteStudent();
+   public  Student fetchStudentByid(Long id);
+    public  List<Student> fetchStudentByName(String name);
+
 }

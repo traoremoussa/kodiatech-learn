@@ -67,3 +67,9 @@ If the `/actuator` endpoint does not return the expected list of endpoints, doub
 
 https://github.com/containers/podman-compose/blob/main/examples/awx3/docker-compose.yml
 (`https://howtodoinjava.com/spring-boot2/sb-multi-module-maven-project/ `)
+
+
+In IntelliJ IDEA, you can format your code to improve readability and maintain coding standards. Here’s how to do it:
+
+### Formatting Code
+- `Ctrl + Alt + L`

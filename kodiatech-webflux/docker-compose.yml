@@ -1,15 +1,26 @@
 version: '3.8'
+
 services:
-  db:
-    image: postgres:latest
+  postgres-db:
+    image: postgres:17.0
     environment:
-      POSTGRES_DB: dbwebflux
       POSTGRES_USER: traore
       POSTGRES_PASSWORD: root
+      POSTGRES_DB: dbwebflux
     ports:
-      - "5432:5432"
+      - "5432:5432"  # The port 5432 exposed to the host
     volumes:
-      - db_data:/var/lib/postgresql/data
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - app-network
+    healthcheck:
+      test: ["CMD", "pg_isready", "-U", "postgres"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
 
 volumes:
-  db_data:
+  postgres_data:
+
+networks:
+  app-network:

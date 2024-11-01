@@ -1,6 +1,7 @@
 package com.kodiatech.etudiant.manager.features.service.impl;
 
 import com.kodiatech.etudiant.manager.features.exceptions.ManagerEtudiantException;
+import com.kodiatech.etudiant.manager.features.exceptions.ManagerEtudiantNotFoundException;
 import com.kodiatech.etudiant.manager.features.models.Student;
 import com.kodiatech.etudiant.manager.features.repository.StudentRepository;
 import com.kodiatech.etudiant.manager.features.service.IStudentService;
@@ -48,5 +49,19 @@ public class StudentServiceImpl implements IStudentService {
     @Override
     public void deleteStudent() {
 
+    }
+
+    @Override
+    public Student fetchStudentByid(Long id) {
+        return studentRepository.findById(id).orElseThrow(()-> new ManagerEtudiantNotFoundException("not-fund stdent {} "+id));
+    }
+
+    @Override
+    public List<Student> fetchStudentByName(String name) {
+        List<Student>list= studentRepository.findByLastName(name);
+        if(list.isEmpty()){
+            throw  new ManagerEtudiantNotFoundException("aucun etudiant n'a ce nom : "+name);
+        }
+        return list;
     }
 }

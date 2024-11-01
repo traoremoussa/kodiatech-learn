@@ -26,9 +26,11 @@ public class Student {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
-
+    @Column(name = "LAST_NAME")
     private String lastName;
+    @Column(name = "FIST_NAME")
     private String fistName;
+
     @NotNull
     @Pattern(regexp = "^[MF]{1}$")
     private String sexe;

@@ -1,17 +1,24 @@
 package com.kodiatech.etudiant.manager.features.controllers;
 
+import com.kodiatech.etudiant.manager.features.exceptions.ManagerBadRequetException;
 import com.kodiatech.etudiant.manager.features.models.Student;
 import com.kodiatech.etudiant.manager.features.service.IStudentService;
+
+import io.micrometer.common.util.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RestController //for rest
+@RestController
+//for rest
+@RequestMapping("student/api")
 public class StudentController {
+    HttpStatus  httpStatus=HttpStatus.OK;
     private final Logger LOG = LoggerFactory.getLogger(getClass());
 
 
@@ -36,6 +43,20 @@ public class StudentController {
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public Student createStudent(@RequestBody Student student){
-        return null;//studentService.saveStudent(student);
+        return studentService.addStudent(student);
+    }
+    @GetMapping("/{id}")
+    public ResponseEntity<Student> fetchStudent( @PathVariable long id){
+
+        return  new ResponseEntity<Student>(studentService.fetchStudentByid(id),httpStatus);
+    }
+
+    @GetMapping("/names")
+    public ResponseEntity<List<Student>> fetchStudentsByNames( @RequestParam ("name") String name){
+
+        if (StringUtils.isBlank(name)) {
+            throw new ManagerBadRequetException("Le nom de l'étudiant ne peut pas être vide.");
+        }
+        return  new ResponseEntity<List<Student>>(studentService.fetchStudentByName(name),httpStatus);
     }
 }

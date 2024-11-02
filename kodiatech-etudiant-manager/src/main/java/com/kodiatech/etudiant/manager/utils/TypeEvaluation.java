@@ -1,4 +1,4 @@
-package com.kodiatech.etudiant.manager.features.models;
+package com.kodiatech.etudiant.manager.utils;
 
 public enum TypeEvaluation {
 

@@ -71,16 +71,18 @@ For modern Spring Boot applications, it is recommended to use `@SpringBootTest` 
 
 ### Liste 
  - `@RunWith(SpringRunner.class)`
- - `@SpringBootTest`
+ - `@SpringBootTest` integration avec context global
  - `@ExtendWith(MockitoExtension.class)`
- - `@AutoConfigureMockMvc`
- - `@DataJpaTest`
+ - `@AutoConfigureMockMvc` // test les endpoints REST
+ - `@DataJpaTest` : integration par defaut (configure une base de données embarquée (comme H2) pour les tests, 
+ce qui permet de tester les interactions avec la base de données sans nécessiter une base de données externe.)
  - `@AutoConfigureTestDatabase(replace = Replace.NONE)`
  - `@TestConfiguration`
  - `@Import(TestEmployeeServiceConfig.class)` importer la config
  - `@ActiveProfiles({"test","dev"})`
  - `RestTemplate`
  - `@WebMvcTest(MyController.class)`
+ - `@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)`
 
 ### Bean 
 

@@ -1,6 +1,7 @@
 package com.kodiatech.etudiant.manager.features.models;
 
 
+import com.kodiatech.etudiant.manager.utils.TypeEvaluation;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -33,11 +34,11 @@ public class Evaluation {
 
     // etudient noté
     @ManyToOne
-    @Column(name = "student_id")
+   // @Column(name = "student_id")
     private Student student;
     //course note
-    @ManyToOne
-    @Column(name = "course_id")
+    @ManyToOne(cascade=CascadeType.ALL)
+    //@Column(name = "course_id")
     private Course course;
     //professeur qui a noté
     @ManyToOne

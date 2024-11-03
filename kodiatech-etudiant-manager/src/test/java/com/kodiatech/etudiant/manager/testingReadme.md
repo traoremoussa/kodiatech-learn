@@ -97,6 +97,7 @@ ce qui permet de tester les interactions avec la base de données sans nécessit
 - assertEquals
 - @Before
 - @Test
+- AssertThat
 
 ### Mehtode d'invocation
 - ` verify`

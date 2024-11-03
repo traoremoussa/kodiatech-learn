@@ -3,6 +3,7 @@ package com.kodiatech.etudiant.manager.features.service.impl;
 import com.kodiatech.etudiant.manager.features.models.Evaluation;
 import com.kodiatech.etudiant.manager.features.repository.EvaluationRepository;
 import com.kodiatech.etudiant.manager.features.service.IEvaluationService;
+import jakarta.transaction.Transactional;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -13,7 +14,7 @@ import java.util.List;
 public class EvaluationServiceImpl implements IEvaluationService {
 
     private final EvaluationRepository evaluationRepository;
-
+@Transactional
     public double calculerMoyenne(Long etudiantId, Long matiereId) {
         List<Evaluation> evaluations =null;//= evaluationRepository.findByEtudiantIdAndMatiereId(etudiantId, matiereId);
         // Calculer la moyenne

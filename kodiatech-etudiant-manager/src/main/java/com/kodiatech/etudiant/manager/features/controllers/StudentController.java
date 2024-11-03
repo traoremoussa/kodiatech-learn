@@ -16,7 +16,7 @@ import java.util.List;
 
 @RestController
 //for rest
-@RequestMapping("student/api")
+@RequestMapping("api/student")
 public class StudentController {
     HttpStatus  httpStatus=HttpStatus.OK;
     private final Logger LOG = LoggerFactory.getLogger(getClass());

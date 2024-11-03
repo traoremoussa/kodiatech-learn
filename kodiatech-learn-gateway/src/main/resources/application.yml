@@ -1,0 +1,37 @@
+spring:
+  application:
+    name: kodiatech-learn-gateway
+#  cloud:
+#    gateway:
+#      routes:
+#        - id: student-route
+#          uri: ${STUDENT_ROUTE_URI:http://localhost:8081}
+#          predicates:
+#            - Path=/student/**
+#          filters:
+#            - PrefixPath=/api
+#            - AddResponseHeader=X-Powered-By, DanSON Gateway Service
+#        - id: weblux-route
+#          uri: ${WEBFLUX_ROUTE_URI:http://localhost:8082}
+#          predicates:
+#            - Path=/webflux/**
+#          filters:
+#            - PrefixPath=/api
+#            - AddResponseHeader=X-Powered-By, DanSON Gateway Service
+
+#http://localhost:8080/actuator/gateway
+#actuator manager
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: always
+    gateway:
+      enabled: true
+
+logging:
+  level:
+    org.springframework.cloud.gateway: DEBUG

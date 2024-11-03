@@ -1,5 +1,6 @@
 package com.kodiatech.etudiant.manager.features.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotNull;
@@ -61,6 +62,8 @@ public class Student {
     private Address adress;
 
 
+
+  @JsonIgnore
     //cour suivi
     @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE}, fetch = FetchType.LAZY)
     @JoinTable(

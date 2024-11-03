@@ -73,3 +73,43 @@ In IntelliJ IDEA, you can format your code to improve readability and maintain c
 
 ### Formatting Code
 - `Ctrl + Alt + L`
+  Dans IntelliJ IDEA, les raccourcis clavier peuvent grandement améliorer votre productivité. Voici quelques-uns des raccourcis les plus utiles :
+
+### Navigation
+- **Ctrl + N** : Rechercher une classe.
+- **Ctrl + Shift + N** : Rechercher un fichier.
+- **Ctrl + Alt + Shift + N** : Rechercher un symbole (méthode, variable, etc.).
+- **Ctrl + E** : Ouvrir la liste des fichiers récemment utilisés.
+- **Ctrl + Shift + E** : Ouvrir la liste des fichiers récemment modifiés.
+
+### Édition de Code
+- **Ctrl + Space** : Complétion de code de base.
+- **Ctrl + Shift + Space** : Complétion intelligente (propose des suggestions plus pertinentes).
+- **Ctrl + /** : Commenter/décommenter une ligne de code. (yml ou yaml on peut faire sur tout)
+- **Ctrl + Shift + /** : Commenter/décommenter un bloc de code.
+- **Ctrl + D** : Dupliquer la ligne actuelle.
+- **Alt + Enter** : Afficher les suggestions de correction ou de changement contextuel.
+
+### Refactoring
+- **Ctrl + R** : Renommer une variable ou une méthode.
+- **Ctrl + Alt + M** : Extraire une méthode.
+- **Ctrl + Alt + V** : Extraire une variable.
+- **Ctrl + Alt + F** : Extraire un champ.
+
+### Exécution et Débogage
+- **Shift + F10** : Exécuter l'application.
+- **Shift + F9** : Déboguer l'application.
+- **F8** : Passer à la ligne suivante lors du débogage.
+- **F7** : Entrer dans la méthode lors du débogage.
+
+### Autres Raccourcis Utiles
+- **Ctrl + Shift + F12** : Masquer/afficher tous les outils.
+- **Alt + 1** : Afficher/masquer le panneau de projet.
+- **Ctrl + Shift + A** : Ouvrir une action (rechercher une action ou une option dans les menus).
+- **Ctrl + Shift + F** : Rechercher dans tout le projet.
+
+### Personnaliser les Raccourcis
+Vous pouvez également personnaliser les raccourcis dans IntelliJ :
+1. Allez dans **File > Settings** (ou **IntelliJ IDEA > Preferences** sur macOS).
+2. Allez dans **Keymap** pour voir et modifier les raccourcis.
+

@@ -1,97 +1,40 @@
-For a simple student management system, you might consider the following entities and their relationships:
+L'annotation `@JsonBackReference` est utilisée dans le contexte de la sérialisation JSON avec Jackson, notamment pour gérer les relations bidirectionnelles entre entités. Voici comment cela fonctionne :
 
-### Entities
+### Contexte
 
-1. **Student**
-   - **Attributes**: `id`, `name`, `email`, `dateOfBirth`, `enrollmentDate`, etc.
+Lorsque vous avez deux classes qui se référencent mutuellement, par exemple, une relation `OneToMany` (un à plusieurs) ou `ManyToMany` (plusieurs à plusieurs), cela peut créer des problèmes de sérialisation, car Jackson peut entrer dans une boucle infinie en essayant de sérialiser les objets liés.
 
-2. **Course**
-   - **Attributes**: `id`, `name`, `description`, `credits`, etc.
+### Utilisation de `@JsonBackReference`
 
-3. **Enrollment**
-   - **Attributes**: `id`, `studentId`, `courseId`, `enrollmentDate`, etc.
+- **`@JsonManagedReference`** : Utilisée sur la partie "d'origine" de la relation, celle qui doit être sérialisée normalement.
+- **`@JsonBackReference`** : Utilisée sur la partie "inverse" de la relation, celle qui ne doit pas être sérialisée pour éviter les boucles.
 
-4. **Instructor**
-   - **Attributes**: `id`, `name`, `email`, `department`, etc.
+### Exemple
 
-5. **Department** (optional)
-   - **Attributes**: `id`, `name`, `location`, etc.
+Prenons un exemple de deux classes, `Student` et `Course`, où un étudiant peut suivre plusieurs cours :
 
-### Relationships
-
-1. **Student - Course (Many-to-Many)**
-   - A student can enroll in multiple courses, and a course can have multiple students. This relationship is typically represented by the **Enrollment** entity, which holds the foreign keys to both `Student` and `Course`.
-
-2. **Course - Instructor (Many-to-One)**
-   - A course is taught by one instructor, but an instructor can teach multiple courses.
-
-3. **Student - Department (Many-to-One)** (optional)
-   - If you want to categorize students by department, each student can belong to one department, but a department can have multiple students.
-
-### Example Entity Models
-
-#### Student.java
 ```java
 public class Student {
     private Long id;
     private String name;
-    private String email;
-    private LocalDate dateOfBirth;
-    private LocalDate enrollmentDate;
-    private Department department; // optional
-    // Getters and Setters
-}
-```
 
-#### Course.java
-```java
+    @JsonManagedReference
+    private List<Course> courses; // Sérialisé normalement
+
+    // Getters et Setters
+}
+
 public class Course {
     private Long id;
-    private String name;
-    private String description;
-    private int credits;
-    private Instructor instructor; // Many-to-One relationship
-    // Getters and Setters
+    private String title;
+
+    @JsonBackReference
+    private Student student; // Ne sera pas sérialisé pour éviter la boucle
+
+    // Getters et Setters
 }
 ```
 
-#### Enrollment.java
-```java
-public class Enrollment {
-    private Long id;
-    private Long studentId; // Foreign key
-    private Long courseId;  // Foreign key
-    private LocalDate enrollmentDate;
-    // Getters and Setters
-}
-```
-
-#### Instructor.java
-```java
-public class Instructor {
-    private Long id;
-    private String name;
-    private String email;
-    private String department;
-    // Getters and Setters
-}
-```
-
-#### Department.java (optional)
-```java
-public class Department {
-    private Long id;
-    private String name;
-    private String location;
-    // Getters and Setters
-}
-```
-
-### Summary
-
-In summary, for a basic student management system, you would typically have at least **4-5 entities** (Student, Course, Enrollment, Instructor, and optionally Department) with the relationships outlined. Adjust the entities and relationships based on your specific requirements.
-
-If you have specific features in mind or need further details, feel free to ask!
 
 
 https://bnguimgo.developpez.com/tutoriels/spring/services-rest-avec-springboot-et-spring-resttemplate/?page=premiere-partie-le-serveur

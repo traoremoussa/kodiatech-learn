@@ -19,5 +19,24 @@ INSERT INTO STUDENT (ID,LAST_NAME,FIST_NAME,sexe,email) values (1,'tra','kaba','
 INSERT INTO STUDENT (ID,LAST_NAME,FIST_NAME,sexe,email) values (2,'keita','mamady','M','kaba@gmail.com');
 INSERT INTO STUDENT (ID,LAST_NAME,FIST_NAME,sexe,email) values (3,'tra','kaman','M','kaman@gmail.com');
 INSERT INTO STUDENT (ID,LAST_NAME,FIST_NAME,sexe,email) values (5,'tra','koman','M','koman@gmail.com');
+
+
+INSERT INTO TEACHER (ID,LAST_NAME,FIST_NAME,sexe,email) values (1,'tra','kaman','M','kaman@gmail.com');
+INSERT INTO TEACHER (ID,LAST_NAME,FIST_NAME,sexe,email) values (2,'tra','koman','M','koman@gmail.com');
+
+
+INSERT INTO COURSE (ID,TITLE,DESCRIPTION,coefcicient,teacher_id) values (1,'Physique','physique matiere',3,1);
+
+INSERT INTO COURSE (ID,TITLE,DESCRIPTION,coefcicient,teacher_id) values (2,'MATHS','Mathematiques',4,2);
+INSERT INTO COURSE (ID,TITLE,DESCRIPTION,coefcicient,teacher_id) values (3,'Chimie','Chimie important',3,2);
+
+--- Association student course
+
+  INSERT INTO  student_course  (student_id, COURSE_id) values(1,1);
+  INSERT INTO  student_course  (student_id, COURSE_id) values(1,2);
+  INSERT INTO  student_course  (student_id, COURSE_id) values(2,1);
+  INSERT INTO  student_course  (student_id, COURSE_id) values(5,2);
+
+
 COMMIT;
 

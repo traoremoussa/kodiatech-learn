@@ -113,3 +113,39 @@ Vous pouvez également personnaliser les raccourcis dans IntelliJ :
 1. Allez dans **File > Settings** (ou **IntelliJ IDEA > Preferences** sur macOS).
 2. Allez dans **Keymap** pour voir et modifier les raccourcis.
 
+
+
+## News 
+- RestClient(https://www.youtube.com/watch?v=UDNrJAvKc0k&ab_channel=DanVega)
+- RestTemplate
+- Observation
+- Jakarta
+- JDBCTemplete
+- JdbcClient 
+- Retrofit
+- ProblemDetail
+
+
+## BONNE PRATIQUE
+[Anti-Patterns and Best Practices](https://www.youtube.com/watch?v=koxu51eqDiQ&ab_channel=SivaLabs)
+
+##
+- @ResponseStatus(HttpStatus.NO_CONTENT) delete par exemple
+## Exception Handler
+- Problr
+
+## QUERY
+- Derived Query Methods in Spring
+- Query
+- session
+- jpa entity manager
+- sql
+- **jpql**
+- hql
+- Page / pagination
+
+
+
+## a voir kafka (portainer.io)
+https://www.youtube.com/watch?v=PZt5EJTLH4o&ab_channel=SivaLabs
+https://github.com/sivaprasadreddy/sivalabs-youtube-code-samples/tree/main/spring-boot-docker-compose-demo/src/main/java/com/sivalabs/demo

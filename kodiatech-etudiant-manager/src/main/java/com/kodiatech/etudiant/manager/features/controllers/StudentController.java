@@ -1,6 +1,7 @@
 package com.kodiatech.etudiant.manager.features.controllers;
 
 import com.kodiatech.etudiant.manager.features.exceptions.ManagerBadRequetException;
+import com.kodiatech.etudiant.manager.features.models.Course;
 import com.kodiatech.etudiant.manager.features.models.Student;
 import com.kodiatech.etudiant.manager.features.service.IStudentService;
 
@@ -58,5 +59,18 @@ public class StudentController {
             throw new ManagerBadRequetException("Le nom de l'étudiant ne peut pas être vide.");
         }
         return  new ResponseEntity<List<Student>>(studentService.fetchStudentByName(name),httpStatus);
+    }
+    // select etudiant par id et afficher ses note par matiere
+    // select liste des cours suivi
+    // select le nombre de matiere ou il a la moyen
+    // liste des matieres ou il a la moyen
+    // liste de classement par matiere
+    // liste de classement generale
+
+
+
+    @GetMapping("/{student_id}/courses")
+    public ResponseEntity<List<Course>> fetchStudentCourses(@PathVariable Long student_id){
+        return null;
     }
 }

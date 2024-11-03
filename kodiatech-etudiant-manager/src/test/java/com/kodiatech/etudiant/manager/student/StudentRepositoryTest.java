@@ -5,7 +5,9 @@ import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 
-@DataJpaTest
+@DataJpaTest ( properties={
+	//mets la config de la bdd où tu veux tester imagine yaplusieur bdd
+})
 @Transactional
 public class StudentRepositoryTest {
 

@@ -24,6 +24,7 @@
         <!-- web-->
         <module>kodiatech-etudiant-manager</module>
         <!--    <module>kodiatech-webflux</module>-->
+        <module>kodiatetch-blog</module>
         <!-- la commun-->
         <module>kodiateck-commun</module>
         <!-- desktop projet -->

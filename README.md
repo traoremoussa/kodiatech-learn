@@ -125,6 +125,11 @@ Vous pouvez également personnaliser les raccourcis dans IntelliJ :
 - Retrofit
 - ProblemDetail
 
+## consume api from other
+- HttpURLConnection 
+- OkHttp
+- RestTemplate based on  HttpURLConnection
+
 
 ## BONNE PRATIQUE
 [Anti-Patterns and Best Practices](https://www.youtube.com/watch?v=koxu51eqDiQ&ab_channel=SivaLabs)
@@ -145,8 +150,3 @@ Vous pouvez également personnaliser les raccourcis dans IntelliJ :
 - Page / pagination
 
 
-
-## a voir kafka (portainer.io)
-https://www.youtube.com/watch?v=PZt5EJTLH4o&ab_channel=SivaLabs
-## Pour Blogue
-https://github.com/sivaprasadreddy/sivalabs-youtube-code-samples/tree/main/spring-boot-docker-compose-demo/src/main/java/com/sivalabs/demo

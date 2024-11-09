@@ -1,9 +1,6 @@
 package com.kodiatetch.blog.features.blog.model;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.*;
 
 import java.util.List;
 @Entity
@@ -19,7 +16,12 @@ public class Author {
     //----------------------------------------------------------------
     private String bio;
     private String name;
-    private String profileImageUrl; // URL to profile image
+
+    @Lob
+    @Column(name = "profileImage", columnDefinition="BLOB")
+    private byte[] profileImage;
+
+
     //A unique identifier (often lowercase name with hyphens, e.g., jane-doe).
     @Column(unique = true)
     private String urlSlug;

@@ -35,15 +35,3 @@ public class Course {
 }
 ```
 
-
-
-https://bnguimgo.developpez.com/tutoriels/spring/services-rest-avec-springboot-et-spring-resttemplate/?page=premiere-partie-le-serveur
-https://guide-angular.wishtack.io/angular/http
-
-https://github.com/oburakcinar/Student-Management-System/tree/main
-
-
-##### Devoxx
-[testing](https://www.youtube.com/watch?v=u5foQULTxHM&ab_channel=Devoxx)
-[security-pdf](https://2024.springio.net/slides/spring-security-architecture-principles-springio24.pdf)
-[security best](https://www.youtube.com/watch?v=HyoLl3VcRFY&ab_channel=SpringI%2FO)

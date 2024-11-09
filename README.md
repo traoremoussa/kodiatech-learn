@@ -148,5 +148,12 @@ Vous pouvez également personnaliser les raccourcis dans IntelliJ :
 - **jpql**
 - hql
 - Page / pagination
-
+- Criteria API
+- Specification API (Spring Data JPA Specifications)
+## QUERY AVANCED
+- Exemple et ExampleMatcher (Query by Example)
+-  Pagination et tri (Pagination and Sorting)
+- Projections
+  Spring Data JPA permet de récupérer seulement certains champs d’une entité en utilisant des projections.
+  Utilisation de l'interface projection ou des projections dynamiques avec @Query.
 

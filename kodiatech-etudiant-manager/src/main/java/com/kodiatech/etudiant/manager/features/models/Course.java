@@ -1,6 +1,7 @@
 package com.kodiatech.etudiant.manager.features.models;
 
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -31,11 +32,12 @@ public class Course {
 
     // liaison
 
-
+    @JsonManagedReference  // Allows serialization of the course-to-student direction
     @ManyToOne
     private Teacher teacher;
 
     @ManyToMany(mappedBy = "courses")  // Indique que c'est le côté inverse de la relation
+    @JsonManagedReference  // Allows serialization of the course-to-student direction
     private Set<Student> students = new HashSet<>();
 
 

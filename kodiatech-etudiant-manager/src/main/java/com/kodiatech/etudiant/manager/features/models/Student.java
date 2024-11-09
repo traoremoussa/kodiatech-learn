@@ -1,5 +1,6 @@
 package com.kodiatech.etudiant.manager.features.models;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
@@ -63,9 +64,10 @@ public class Student {
 
 
 
-  @JsonIgnore
+ // @JsonIgnore
+  @JsonBackReference  // Prevents infinite recursion in the student-to-course direction
     //cour suivi
-    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE}, fetch = FetchType.LAZY)
+    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE}, fetch = FetchType.EAGER)
     @JoinTable(
             name = "student_course",  // Nom de la table de jointure
             joinColumns = @JoinColumn(name = "student_id"), // Colonne pour l'étudiant
@@ -87,4 +89,5 @@ public class Student {
       The FromClause shows that it will select from the Student table,
      and it includes a join with the address and a left join with the department.
      */
+    
 }

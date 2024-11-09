@@ -34,4 +34,11 @@ public class Course {
     // Getters et Setters
 }
 ```
+si je veux quand je charge etudiant ça vient directement avec cours mais cours doit pas prendre son ref() pour evit
+### Key Differences:
 
+- **`@JsonIgnore`** completely excludes a property from being serialized or deserialized.
+- **`@JsonManagedReference`** is used in bidirectional relationships to allow serialization of the "parent" side.
+- **`@JsonBackReference`** is used in bidirectional relationships to prevent the "child" side from being serialized and causing infinite recursion.
+
+These annotations work together to handle complex object graphs and avoid problems like infinite recursion that can occur when two objects reference each other.

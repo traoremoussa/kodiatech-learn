@@ -1,5 +1,6 @@
 package com.kodiatech.etudiant.manager.features.models;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
@@ -12,6 +13,8 @@ import lombok.NoArgsConstructor;
 
 
 import java.time.LocalDate;
+import java.util.HashSet;
+import java.util.Set;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -44,4 +47,8 @@ public class Teacher {
     @ManyToOne(fetch = FetchType.LAZY, cascade = { CascadeType.PERSIST, CascadeType.MERGE} )
     @JoinColumn(name = "department_id")// cle etrangere ref id dep
     private Department department;
+
+    @JsonBackReference  // Prevents infinite recursion in the student-to-course direction
+    @OneToMany
+    private Set<Course> courseSet =new HashSet<>();
 }

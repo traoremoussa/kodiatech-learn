@@ -8,8 +8,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.ArrayList;
-import java.util.Collection;
+import java.util.*;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -29,10 +28,10 @@ public class Department {
 
     @JsonIgnore
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "department")
-    private Collection<Student> students = new ArrayList<>();
+    private Set<Student> students = new HashSet<>();
 
     @JsonIgnore
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "department")
-    private Collection<Teacher> teachers = new ArrayList<>();
+    private Set<Teacher> teachers = new HashSet<>();
 
 }

@@ -14,12 +14,18 @@ https://spring.io/blog/2016/04/15/testing-improvements-in-spring-boot-1-4
 [testing](https://www.youtube.com/watch?v=u5foQULTxHM&ab_channel=Devoxx)
 [security-pdf](https://2024.springio.net/slides/spring-security-architecture-principles-springio24.pdf)
 [security best](https://www.youtube.com/watch?v=HyoLl3VcRFY&ab_channel=SpringI%2FO)
+## Optimisation des requte
 **Une bonne ref pour le requette**
 [Build faster persistence layers with Spring Data JPA 3](https://www.youtube.com/watch?v=t27Uozc2Z58&t=4s&ab_channel=SpringI%2FO)
 [PDF-FASTER](https://2024.springio.net/slides/build-faster-persistence-layers-with-spring-data-jpa-3-springio24.pdf)
+- autre link
+[n+1 graph et autre](https://medium.com/@AlexanderObregon/optimizing-queries-with-query-annotation-in-spring-data-jpa-fe213c8a60a)
 
 
-
+## SFEIR DEV
+[fuite memoire](https://www.sfeir.dev/back/traquer-une-fuite-memoire-cas-detude-avec-hibernate-5-ne-tombez-pas-dans-le-in/)
+[Problem N+1](https://www.sfeir.dev/back/probleme-n-1-en-spring-data-jpa-decouvrez-comment-optimiser-vos-requetes-avec-lannotation-query-2/)
+[Batch](https://www.sfeir.dev/back/planifier-des-taches-avec-spring-batch/)
 
 ## MAVEN MULTI-MODULE 
 

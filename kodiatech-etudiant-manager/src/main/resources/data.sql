@@ -14,6 +14,9 @@ INSERT INTO USER_ROLE(USER_ID,ROLE_ID) VALUES (2,2);
 INSERT INTO USER_ROLE(USER_ID,ROLE_ID) VALUES (3,2);
 
 
+-------------------------------------
+INSERT INTO DEPARTMENT(ID,NAME)values (1,'INFORMAIQUE')
+
 
 INSERT INTO STUDENT (ID,LAST_NAME,FIST_NAME,sexe,email) values (1,'tra','kaba','M','kaba@gmail.com');
 INSERT INTO STUDENT (ID,LAST_NAME,FIST_NAME,sexe,email) values (2,'keita','mamady','M','kaba@gmail.com');

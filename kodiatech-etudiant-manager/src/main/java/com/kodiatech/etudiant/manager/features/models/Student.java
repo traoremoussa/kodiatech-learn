@@ -67,7 +67,7 @@ public class Student {
  // @JsonIgnore
   @JsonBackReference  // Prevents infinite recursion in the student-to-course direction
     //cour suivi
-    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE}, fetch = FetchType.EAGER)
+    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE}, fetch = FetchType.LAZY)
     @JoinTable(
             name = "student_course",  // Nom de la table de jointure
             joinColumns = @JoinColumn(name = "student_id"), // Colonne pour l'étudiant
@@ -89,5 +89,5 @@ public class Student {
       The FromClause shows that it will select from the Student table,
      and it includes a join with the address and a left join with the department.
      */
-    
+
 }

@@ -36,3 +36,5 @@ public class GlobalExceptionHandler {
         return ResponseEntity.badRequest().body(message);
     }
 }
+//ERROR Reponse
+//https://www.sfeir.dev/back/comment-bien-gerer-ses-erreur-dans-springboot/

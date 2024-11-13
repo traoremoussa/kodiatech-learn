@@ -1,6 +1,7 @@
 package com.kodiatech.etudiant.manager.features.models;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.kodiatech.etudiant.manager.auth.model.Utilisateur;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
@@ -51,4 +52,8 @@ public class Teacher {
     @JsonBackReference  // Prevents infinite recursion in the student-to-course direction
     @OneToMany
     private Set<Course> courseSet =new HashSet<>();
+
+    @OneToOne
+    @JoinColumn(name = "utilisateur_id")
+    private Utilisateur utilisateur;
 }

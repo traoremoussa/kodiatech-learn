@@ -1,7 +1,7 @@
 package com.kodiatech.etudiant.manager.features.models;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.kodiatech.etudiant.manager.auth.model.Utilisateur;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotNull;
@@ -77,7 +77,35 @@ public class Student {
 
 
     @ManyToOne(cascade = { CascadeType.PERSIST, CascadeType.MERGE} )
+    @JoinColumn(name = "department_id")// cle etrangere ref id dep
     private Department department;
+
+    @OneToOne
+    @JoinColumn(name = "utilisateur_id")
+    private Utilisateur utilisateur;
+
+
+    /***
+     * @JsonBackReference
+     * @JsonIgnore
+     *
+     * @ManyToMany
+     *
+     * @ManyToOne
+     *
+     * mappedBy : on met dans la classe parent, ou ne se trouve pas la clé etrangere (attribut class parent(responsabilité))
+     *
+     *COMME ICI ON VOIT CLE ETRANGERE ( chez son parent on va mappedBy) pour assurer bidirectionnelle  
+     * utilisateur_id
+     *
+     * department_id
+     */
+
+
+
+
+
+
 
 
 

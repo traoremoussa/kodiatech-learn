@@ -1,5 +1,7 @@
 package com.kodiatech.etudiant.manager.auth.model;
 
+import com.kodiatech.etudiant.manager.features.models.Student;
+import com.kodiatech.etudiant.manager.features.models.Teacher;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -17,7 +19,7 @@ import java.util.Set;
 @Entity
 
 @Table(name="UTILISATEUR")
-public class User {
+public class Utilisateur {
 
 
     @Id
@@ -42,4 +44,12 @@ public class User {
             inverseJoinColumns = @JoinColumn(name = "ROLE_ID")
     )
     private Set<Role> roles= new HashSet<>();
+
+
+   // -------
+
+    @OneToOne(mappedBy = "utilisateur", cascade = CascadeType.ALL)
+    private Student student;
+    @OneToOne(mappedBy = "utilisateur", cascade = CascadeType.ALL)
+    private Teacher teacher;
 }

@@ -15,17 +15,17 @@ INSERT INTO USER_ROLE(USER_ID,ROLE_ID) VALUES (3,2);
 
 
 -------------------------------------
-INSERT INTO DEPARTMENT(ID,NAME)values (1,'INFORMAIQUE')
+INSERT INTO DEPARTMENT(ID,NAME)values (1,'INFORMAIQUE');
 
 
-INSERT INTO STUDENT (ID,LAST_NAME,FIST_NAME,sexe,email) values (1,'tra','kaba','M','kaba@gmail.com');
-INSERT INTO STUDENT (ID,LAST_NAME,FIST_NAME,sexe,email) values (2,'keita','mamady','M','kaba@gmail.com');
-INSERT INTO STUDENT (ID,LAST_NAME,FIST_NAME,sexe,email) values (3,'tra','kaman','M','kaman@gmail.com');
-INSERT INTO STUDENT (ID,LAST_NAME,FIST_NAME,sexe,email) values (5,'tra','koman','M','koman@gmail.com');
+INSERT INTO STUDENT (ID,LAST_NAME,FIST_NAME,sexe,email,department_id) values (1,'tra','kaba','M','kaba@gmail.com',1);
+INSERT INTO STUDENT (ID,LAST_NAME,FIST_NAME,sexe,email,department_id) values (2,'keita','mamady','M','kaba@gmail.com',1);
+INSERT INTO STUDENT (ID,LAST_NAME,FIST_NAME,sexe,email,department_id) values (3,'tra','kaman','M','kaman@gmail.com',1);
+INSERT INTO STUDENT (ID,LAST_NAME,FIST_NAME,sexe,email,department_id) values (5,'tra','koman','M','koman@gmail.com',1);
 
 
-INSERT INTO TEACHER (ID,LAST_NAME,FIST_NAME,sexe,email) values (1,'tra','kaman','M','kaman@gmail.com');
-INSERT INTO TEACHER (ID,LAST_NAME,FIST_NAME,sexe,email) values (2,'tra','koman','M','koman@gmail.com');
+INSERT INTO TEACHER (ID,LAST_NAME,FIST_NAME,sexe,email,department_id) values (1,'tra','kaman','M','kaman@gmail.com',1);
+INSERT INTO TEACHER (ID,LAST_NAME,FIST_NAME,sexe,email,department_id) values (2,'tra','koman','M','koman@gmail.com',1);
 
 
 INSERT INTO COURSE (ID,TITLE,DESCRIPTION,coefcicient,teacher_id) values (1,'Physique','physique matiere',3,1);

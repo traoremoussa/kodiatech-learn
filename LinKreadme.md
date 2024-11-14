@@ -27,6 +27,10 @@ https://spring.io/blog/2016/04/15/testing-improvements-in-spring-boot-1-4
 [Problem N+1](https://www.sfeir.dev/back/probleme-n-1-en-spring-data-jpa-decouvrez-comment-optimiser-vos-requetes-avec-lannotation-query-2/)
 [Batch](https://www.sfeir.dev/back/planifier-des-taches-avec-spring-batch/)
 
+
+## Gestion des exception
+[Lien exceptio](https://namekjoel.medium.com/g%C3%A9rez-les-exceptions-de-mani%C3%A8re-coh%C3%A9rente-et-centralis%C3%A9e-dans-spring-mvc-avec-controlleradvice-98c0f9078929)
+ 
 ## MAVEN MULTI-MODULE 
 
 https://www.javatpoint.com/spring-boot-multi-module-project

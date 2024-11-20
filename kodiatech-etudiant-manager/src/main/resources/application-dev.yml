@@ -1,6 +1,8 @@
 server:
   port: 8081
 spring:
+  messages:
+     basename: messages
   #bdd H2
   h2:
     console:
@@ -33,10 +35,10 @@ logging:
         orm.jpa.JpaTransactionManager: debug  #va notify en cas de probleme dans transaction en log
         boot.autoconfiguration.h2: INFO #info sur bdd
 
-      hibernate: DEBUG
-      apache:
-        commons:
-          dbcp2: DEBUG
+#      hibernate: DEBUG
+#      apache:
+#        commons:
+#          dbcp2: DEBUG
   ## genereted file log
   path: concretepage/logs
 

@@ -2,7 +2,7 @@ package com.kodiatech.etudiant.manager.features.service.impl;
 
 import com.kodiatech.etudiant.manager.features.exceptions.ManagerEtudiantException;
 import com.kodiatech.etudiant.manager.features.exceptions.ManagerEtudiantNotFoundException;
-import com.kodiatech.etudiant.manager.features.models.Student;
+import com.kodiatech.etudiant.manager.features.model.Student;
 import com.kodiatech.etudiant.manager.features.repository.StudentRepository;
 import com.kodiatech.etudiant.manager.features.service.IStudentService;
 import jakarta.transaction.Transactional;

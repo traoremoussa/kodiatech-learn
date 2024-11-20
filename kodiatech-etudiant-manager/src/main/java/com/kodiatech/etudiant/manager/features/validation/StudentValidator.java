@@ -1,6 +1,6 @@
 package com.kodiatech.etudiant.manager.features.validation;
 
-import com.kodiatech.etudiant.manager.features.models.Student;
+import com.kodiatech.etudiant.manager.features.model.Student;
 
 import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;
@@ -16,7 +16,7 @@ public class StudentValidator  implements Validator {
     public void validate(Object target, Errors errors) {
         Student student=(Student) target;
 
-        if(student.getFistName()==null){
+        if(student.getFirstName()==null){
             errors.rejectValue("username", "username.empty", "Le nom d'utilisateur ne peut pas être vide");
         }
         // Validation du champ email

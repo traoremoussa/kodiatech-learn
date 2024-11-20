@@ -1,4 +1,4 @@
-package com.kodiatech.etudiant.manager.features.models;
+package com.kodiatech.etudiant.manager.features.model;
 
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
@@ -25,7 +25,7 @@ public class Course {
     private String title;
     private String description;
     //coef du cours ou  de   la matiere
-    private  Integer coefcicient;
+    private  Integer coefficient;
 
 
 

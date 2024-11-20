@@ -1,4 +1,4 @@
-package com.kodiatech.etudiant.manager.features.models;
+package com.kodiatech.etudiant.manager.features.model;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.kodiatech.etudiant.manager.auth.model.Utilisateur;
@@ -29,9 +29,11 @@ public class Teacher {
 
     @NotNull
     @Size(min = 1)
+    @Column(name = "LAST_NAME")
     private String lastName;
     @NotNull @Size(min = 1)
-    private String fistName;
+    @Column(name = "FIRST_NAME")
+    private String firstName;
 
     @NotNull
     @Pattern(regexp = "^[MF]{1}$")

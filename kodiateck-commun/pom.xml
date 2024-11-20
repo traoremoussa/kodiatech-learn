@@ -10,9 +10,6 @@
     </parent>
 
 
-
-
-
     <!-- Identifiants du module -->
     <groupId>com.kodiatech.learn</groupId>
     <artifactId>kodiateck-commun</artifactId>
@@ -26,11 +23,22 @@
     </properties>
 
     <dependencies>
-
+<!-- Actuator pour healt, metric, info sur la sante des apis-->
         <dependency>
-        			<groupId>org.springframework.boot</groupId>
-        			<artifactId>spring-boot-starter-actuator</artifactId>
-        		</dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
+        </dependency>
+        <!-- Pour la validation -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-validation</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.hibernate.validator</groupId>
+            <artifactId>hibernate-validator</artifactId>
+            <version>8.0.1.Final</version>
+        </dependency>
+
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>

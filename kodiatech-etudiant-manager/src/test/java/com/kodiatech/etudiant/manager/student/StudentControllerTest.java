@@ -1,10 +1,62 @@
 package com.kodiatech.etudiant.manager.student;
 
 
-import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
+import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.web.client.TestRestTemplate;
+import org.springframework.boot.test.web.server.LocalServerPort;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
+import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 
-@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-@AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
+
+import static org.hamcrest.Matchers.equalTo;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+import static org.assertj.core.api.Assertions.assertThat;
+
+@SpringBootTest
+@AutoConfigureMockMvc
 public class StudentControllerTest {
+
+
+    @Autowired
+    private MockMvc mvc;
+
+    @Test
+    public void getHello() throws Exception {
+        mvc.perform(MockMvcRequestBuilders.get( "/api/student/").accept(MediaType.APPLICATION_JSON))
+                .andExpect(status().isOk())
+                .andExpect(content().string(equalTo("hello toulouse ok gg")));
+    }
+
+
+
 }
+/***
+ *
+ *@SpringBootTest : si je veux demarer le context complet de spring (Test integration ou j'ai besoin du context generale)
+ * @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT) : Cela signifie que Spring Boot démarrera un serveur web embarqué
+ * (comme Tomcat) sur un port aléatoire
+ * Quand l'utiliser : Lorsque vous avez besoin de tester des composants web, par exemple des appels HTTP via un contrôleur REST,
+ * tout en démarrant un serveur web dans un environnement d'intégration.
+ *
+ *@AutoConfigureMockMvc  un outil qui permet de simuler des requêtes HTTP sans
+ * démarrer un serveur web réel. MockMvc est utilisé pour tester des contrôleurs
+ * dans des tests d'intégration sans avoir besoin de lancer un serveur réel.
+ *Vous l'utilisez lorsque vous souhaitez tester les contrôleurs
+ * (et non l'intégralité de l'application) sans démarrer un serveur web réel.
+ *
+ *pour tester des contrôleurs sans démarrer un serveur web.
+ *
+ *Utilisez @AutoConfigureTestDatabase(replace = NONE) pour conserver la configuration de votre base de données réelle.
+ * données configurée dans votre environnement (par exemple, une base de données PostgreSQL ou MySQL).
+ * Cette annotation est utilisée pour configurer la base de données dans les tests. Par défaut, Spring Boot remplace la base
+ * de données configurée par une base de données
+ * en mémoire (comme H2) pour les tests, mais en utilisant cette annotation, vous pouvez désactiver ce comportement.
+ *
+ *
+ */

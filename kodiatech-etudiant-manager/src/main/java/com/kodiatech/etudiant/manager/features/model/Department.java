@@ -1,4 +1,4 @@
-package com.kodiatech.etudiant.manager.features.models;
+package com.kodiatech.etudiant.manager.features.model;
 
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -17,7 +17,8 @@ import java.util.*;
 @Entity
 public class Department {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "department_seq")
+    @SequenceGenerator(name = "department_seq", sequenceName = "department_seq", allocationSize = 1)
     private Long id;
     private String name;
     private String location;

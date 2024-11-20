@@ -1,17 +1,16 @@
-package com.kodiatech.etudiant.manager.features.models;
+package com.kodiatech.etudiant.manager.features.model;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.kodiatech.etudiant.manager.auth.model.Utilisateur;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
-import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.NotBlank;
+
 import jakarta.validation.constraints.Pattern;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
-
 
 
 import java.time.LocalDate;
@@ -30,15 +29,16 @@ public class Student {
     private Long id;
     @Column(name = "LAST_NAME")
     private String lastName;
-    @Column(name = "FIST_NAME")
-    private String fistName;
+    @Column(name = "FIRST_NAME")
+    private String firstName;
 
-    @NotNull
+    @NotBlank
     @Pattern(regexp = "^[MF]{1}$")
     private String sexe;
 
 
-    @NotNull @Email
+    @NotBlank
+    @Email
     private String email;
 
 
@@ -48,10 +48,9 @@ public class Student {
     private LocalDate enrollmentDate;
 
 
-
     public Student(String lastName, String fistName, String email, String phone) {
         this.lastName = lastName;
-        this.fistName = fistName;
+        this.firstName = fistName;
         this.email = email;
         this.phone = phone;
 
@@ -63,9 +62,8 @@ public class Student {
     private Address adress;
 
 
-
- // @JsonIgnore
-  @JsonBackReference  // Prevents infinite recursion in the student-to-course direction
+    // @JsonIgnore
+    @JsonBackReference  // Prevents infinite recursion in the student-to-course direction
     //cour suivi
     @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE}, fetch = FetchType.LAZY)
     @JoinTable(
@@ -76,7 +74,7 @@ public class Student {
     private Set<Course> courses = new HashSet<>();
 
 
-    @ManyToOne(cascade = { CascadeType.PERSIST, CascadeType.MERGE} )
+    @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     @JoinColumn(name = "department_id")// cle etrangere ref id dep
     private Department department;
 
@@ -102,19 +100,11 @@ public class Student {
      */
 
 
-
-
-
-
-
-
-
-
     /**
-    SQL AST Tree:
+     SQL AST Tree:
 
-       The SQL Abstract Syntax Tree (AST) indicates how the query will be structured.
-      The FromClause shows that it will select from the Student table,
+     The SQL Abstract Syntax Tree (AST) indicates how the query will be structured.
+     The FromClause shows that it will select from the Student table,
      and it includes a join with the address and a left join with the department.
      */
 

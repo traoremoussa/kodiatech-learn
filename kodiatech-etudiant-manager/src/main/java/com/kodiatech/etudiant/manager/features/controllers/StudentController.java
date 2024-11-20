@@ -1,8 +1,8 @@
 package com.kodiatech.etudiant.manager.features.controllers;
 
 import com.kodiatech.etudiant.manager.features.exceptions.ManagerBadRequetException;
-import com.kodiatech.etudiant.manager.features.models.Course;
-import com.kodiatech.etudiant.manager.features.models.Student;
+import com.kodiatech.etudiant.manager.features.model.Course;
+import com.kodiatech.etudiant.manager.features.model.Student;
 import com.kodiatech.etudiant.manager.features.service.IStudentService;
 
 import io.micrometer.common.util.StringUtils;
@@ -16,6 +16,8 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+/*Controller
+@ResponseBody*/
 //for rest
 @RequestMapping("api/student")
 public class StudentController {
@@ -30,7 +32,7 @@ public class StudentController {
     }
 
 
-    @GetMapping()
+    @GetMapping("/")
     public String hello() {
         return "hello toulouse ok gg";
     }

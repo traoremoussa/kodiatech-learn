@@ -1,8 +1,10 @@
 package com.kodiatech.etudiant.manager.auth.model;
 
-import com.kodiatech.etudiant.manager.features.models.Student;
-import com.kodiatech.etudiant.manager.features.models.Teacher;
+import com.kodiatech.etudiant.manager.features.model.Student;
+import com.kodiatech.etudiant.manager.features.model.Teacher;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -27,11 +29,17 @@ public class Utilisateur {
     @Column(name = "USER_ID", updatable = false, nullable = false)
     private Long id;
 
-    @Column(name = "LOGIN", unique=true, insertable=true, updatable=true, nullable=false)
-    private String login;
+    @NotEmpty(message = "Le nom d'utilisateur ne doit pas être vide")
+    @Size(min = 3, max = 20, message = "Le nom d'utilisateur doit contenir entre 3 et 20 caractères")
+    @Column(name = "USERNAME", unique=true, insertable=true, updatable=true, nullable=false)
+    private String username;
 
+    @NotEmpty(message = "Le mot de passe ne doit pas être vide")
     @Column(name = "USER_PASSWORD", insertable=true, updatable=true, nullable=false)
     private String password;
+
+
+
 
     @Column(name = "USER_ACTIVE", insertable=true, updatable = true, nullable=false)
     private Integer active;

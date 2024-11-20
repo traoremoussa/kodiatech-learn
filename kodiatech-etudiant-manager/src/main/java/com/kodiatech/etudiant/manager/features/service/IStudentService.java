@@ -1,6 +1,6 @@
 package com.kodiatech.etudiant.manager.features.service;
 
-import com.kodiatech.etudiant.manager.features.models.Student;
+import com.kodiatech.etudiant.manager.features.model.Student;
 
 import java.util.List;
 

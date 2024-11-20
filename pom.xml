@@ -34,6 +34,7 @@
         <module>kodiatech-learn-batch</module>
         <module>kodiatech-kafka</module>
         <module>kodiatech-learn-gateway</module>
+        <module>kodiatech-test</module>
     </modules>
 
 

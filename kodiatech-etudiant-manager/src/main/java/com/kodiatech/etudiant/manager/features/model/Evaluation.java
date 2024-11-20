@@ -1,4 +1,4 @@
-package com.kodiatech.etudiant.manager.features.models;
+package com.kodiatech.etudiant.manager.features.model;
 
 
 import com.kodiatech.etudiant.manager.utils.TypeEvaluation;

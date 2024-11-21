@@ -2,6 +2,7 @@ package com.kodiatech.etudiant.manager.auth.model;
 
 import com.kodiatech.etudiant.manager.features.model.Student;
 import com.kodiatech.etudiant.manager.features.model.Teacher;
+import com.kodiatech.etudiant.manager.features.validation.ValidPassword;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.Size;
@@ -36,6 +37,7 @@ public class Utilisateur {
 
     @NotEmpty(message = "Le mot de passe ne doit pas être vide")
     @Column(name = "USER_PASSWORD", insertable=true, updatable=true, nullable=false)
+    @ValidPassword
     private String password;
 
 

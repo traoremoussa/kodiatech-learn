@@ -16,6 +16,8 @@ import java.util.List;
 @AllArgsConstructor
 public class StudentServiceImpl implements IStudentService {
     private final StudentRepository studentRepository;
+
+
     @Override
     public List<Student> getStudents() {
         //return List.of(new Student("etu1","eut12","mail@gmai.com","070808") );
@@ -23,6 +25,11 @@ public class StudentServiceImpl implements IStudentService {
          studentRepository.findAll().forEach(list::add);
         return list;
     }
+    public String hello() {
+        return "hello toulouse ok gg";
+    }
+
+
 
     @Transactional
     @Override

@@ -70,26 +70,67 @@ For modern Spring Boot applications, it is recommended to use `@SpringBootTest` 
 
 
 ### Liste 
- - `@RunWith(SpringRunner.class)`
- - `@SpringBootTest` integration avec context global
- - `@ExtendWith(MockitoExtension.class)`
- - `@AutoConfigureMockMvc` // test les endpoints REST
- - `@DataJpaTest` : integration par defaut (configure une base de données embarquée (comme H2) pour les tests, 
-ce qui permet de tester les interactions avec la base de données sans nécessiter une base de données externe.)
- - `@AutoConfigureTestDatabase(replace = Replace.NONE)`
- - `@TestConfiguration`
- - `@Import(TestEmployeeServiceConfig.class)` importer la config
+ 1.  `@RunWith(SpringRunner.class)` est une annotation utilisée dans JUnit 4 pour indiquer que
+       SpringRunner (anciennement SpringJUnit4ClassRunner) doit être utilisé pour exécuter les tests. 
+         Cela permet d’intégrer le framework Spring Test avec JUnit 4.
+   le contexte Spring et d'activer des fonctionnalités comme l'injection de dépendances avec
+`@Autowired` ou l'utilisation de `@MockBean`, `@TestConfiguration`, etc.
+   ` @RunWith(SpringRunner.class) // Utiliser SpringRunner pour les tests Spring avec JUnit 4
+   @SpringBootTest // Charger le contexte Spring complet
+   public class MyServiceIntegrationTest {
+   }
+   }`
+
+2. `@SpringBootTest` integration avec context global
+3. `@ExtendWith(MockitoExtension.class)`dans les tests qui nécessitent l'utilisation de Mockito 
+        pour simuler des dépendances
+
+ 4. `@AutoConfigureMockMvc` // test les endpoints REST
+    est une annotation utilisée dans les tests d'intégration avec Spring Boot
+  pour configurer automatiquement une instance de MockMvc. MockMvc permet de simuler des 
+   appels HTTP et de tester les contrôleurs sans démarrer un serveur web réel.
+
+5. `@DataJpaTest` : integration par defaut (configure une base de données embarquée (comme H2) pour les tests, 
+  ce qui permet de tester les interactions avec la base de données sans nécessiter une base de données externe.)
+
+6. `@AutoConfigureTestDatabase(replace = Replace.NONE)`
+7. `@TestConfiguration`
+8. `@Import(TestEmployeeServiceConfig.class)` importer la config
  - `@ActiveProfiles({"test","dev"})`
  - `RestTemplate`
  - `@WebMvcTest(MyController.class)`
- - `@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)`
+ - 
+ - `@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)`: dans context general, avec port variable
+
+## resume à partir junit 5 
+  1. @ExtendWith(MockitoExtension.class) :**Tests unitaires**  Cette annotation permet de configurer automatiquement 
+   les mocks avec `@Mock`, `@InjectMocks`, et autres annotations de Mockito.
+
+  2. `@AutoConfigureMockMvc`**Tests d'intégration**pour tester des endpoints HTTP sans démarrer un serveur complet.
+    mais à  utiliser avec `@SpringBootTest` plus complet que `@WebMvcTest`
+
+  3. `@WebMvcTest` :  que la partie controller , si ya les beans `MockBean` pour charger par exmple les services
 
 ### Bean 
 
-- ` @MockBean`
-- `@Mock`
-- `@MockMvc`
-- `@Spy`
+- ` @MockBean` **tests Integration** **Test d'un contrôleur**Spring avec des services simulés
+  Lorsque vous voulez tester un contrôleur, un service ou un composant Spring, 
+et que vous avez des dépendances qui ne sont pas encore prêtes à être testées 
+(par exemple des appels à une base de données ou des services externes).
+- Elle est couramment utilisée avec `@WebMvcTest`, `@SpringBootTest` et d'autres
+- annotations de test Spring pour injecter des versions simulées des beans dans le contexte Spring du test.
+- `@Mock` **tests unitaires** qui ne dépendent pas de Spring, pour simuler des
+  Utilisez-le avec MockitoJUnitRunner ou dans des classes de test avec `@ExtendWith(MockitoExtension.class).`
+- `@MockMvc` : **Tester les contrôleurs** Spring sans serveur réel, **Test d'intégration** du Web Layer avec Spring MVC
+Simule des requêtes HTTP sur des contrôleurs
+  Utilisez @MockMvc pour tester les contrôleurs dans un environnement Spring sans démarrer 
+- un serveur complet, et pour tester le comportement des requêtes HTTP (GET, POST, etc.).
+- `@Spy` **tests unitaires** Modifier et surveiller des objets réels dans un test unitaire
+## Resumer
+ - `@MockMvc`
+ - ` @MockBean`
+
+
 - # dans teste integration on pas utilise mock (services)
 -   @Autowired
 - assertNotNull

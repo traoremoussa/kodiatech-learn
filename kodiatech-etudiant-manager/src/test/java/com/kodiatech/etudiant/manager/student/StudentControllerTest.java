@@ -1,41 +1,62 @@
 package com.kodiatech.etudiant.manager.student;
 
 
+import com.kodiatech.etudiant.manager.features.controllers.StudentController;
+import com.kodiatech.etudiant.manager.features.service.IStudentService;
+import com.kodiatech.etudiant.manager.features.service.impl.StudentServiceImpl;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
+import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.boot.test.web.client.TestRestTemplate;
-import org.springframework.boot.test.web.server.LocalServerPort;
+import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
-import org.springframework.http.ResponseEntity;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 
 
+import static org.hamcrest.Matchers.containsString;
 import static org.hamcrest.Matchers.equalTo;
+import static org.mockito.Mockito.when;
+import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
-import static org.assertj.core.api.Assertions.assertThat;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 
-@SpringBootTest
-@AutoConfigureMockMvc
+
+
+
+@WebMvcTest(controllers =StudentController.class)
 public class StudentControllerTest {
 
 
     @Autowired
     private MockMvc mvc;
 
+    @MockBean
+    private IStudentService studentService;
+
     @Test
     public void getHello() throws Exception {
-        mvc.perform(MockMvcRequestBuilders.get( "/api/student/").accept(MediaType.APPLICATION_JSON))
-                .andExpect(status().isOk())
-                .andExpect(content().string(equalTo("hello toulouse ok gg")));
+//
+        when(studentService.hello()).thenReturn("hello toulouse ok gg");
+
+        mvc.perform(get("/api/student/")).andDo(print()).andExpect(status().isOk())
+                .andExpect(content().string(containsString("hello toulouse ok gg")));
     }
 
+    @Test
+    public void getHello2() throws Exception {
 
 
+        mvc.perform(get("/api/student/hh")).andDo(print()).andExpect(status().isOk())
+                .andExpect(content().string(containsString("hello toulouse ok gg")));
+    }
 }
+
+
 /***
  *
  *@SpringBootTest : si je veux demarer le context complet de spring (Test integration ou j'ai besoin du context generale)
@@ -44,7 +65,7 @@ public class StudentControllerTest {
  * Quand l'utiliser : Lorsque vous avez besoin de tester des composants web, par exemple des appels HTTP via un contrôleur REST,
  * tout en démarrant un serveur web dans un environnement d'intégration.
  *
- *@AutoConfigureMockMvc  un outil qui permet de simuler des requêtes HTTP sans
+ *@AutoConfigureMockMvc un outil qui permet de simuler des requêtes HTTP sans
  * démarrer un serveur web réel. MockMvc est utilisé pour tester des contrôleurs
  * dans des tests d'intégration sans avoir besoin de lancer un serveur réel.
  *Vous l'utilisez lorsque vous souhaitez tester les contrôleurs

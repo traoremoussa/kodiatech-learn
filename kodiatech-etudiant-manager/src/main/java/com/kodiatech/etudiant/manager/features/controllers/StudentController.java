@@ -34,6 +34,10 @@ public class StudentController {
 
     @GetMapping("/")
     public String hello() {
+        return this.studentService.hello();
+    }
+    @GetMapping("/hh")
+    public String hello2() {
         return "hello toulouse ok gg";
     }
 

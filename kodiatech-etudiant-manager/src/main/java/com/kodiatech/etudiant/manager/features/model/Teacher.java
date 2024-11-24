@@ -1,6 +1,8 @@
 package com.kodiatech.etudiant.manager.features.model;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.kodiatech.etudiant.manager.auth.model.Utilisateur;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
@@ -51,8 +53,9 @@ public class Teacher {
     @JoinColumn(name = "department_id")// cle etrangere ref id dep
     private Department department;
 
-    @JsonBackReference  // Prevents infinite recursion in the student-to-course direction
-    @OneToMany
+    @JsonIgnore
+    //@JsonManagedReference("teacher-course")  // Correspond à "teacher-course" dans Teacher
+    @OneToMany(mappedBy = "teacher", cascade = CascadeType.ALL,fetch=FetchType.EAGER)
     private Set<Course> courseSet =new HashSet<>();
 
     @OneToOne

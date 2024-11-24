@@ -1,0 +1,10 @@
+services:
+  postgres:
+    container_name: student_manage
+    image: 'postgres:16.0'
+    environment:
+      - 'POSTGRES_DB=student_bd'
+      - 'POSTGRES_PASSWORD=1234'
+      - 'POSTGRES_USER=root'
+    ports:
+      - '5433:5432'  # Assurez-vous que le port 5433 est mappé

@@ -19,7 +19,7 @@ spring:
     defer-datasource-initialization: true
   sql:
     init:
-      mode: always
+      mode: NEVER #always
 
       # pour bien comprendre init avec data sql ou create tab by schema
     #https://www.baeldung.com/spring-boot-data-sql-and-schema-sql

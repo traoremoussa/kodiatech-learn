@@ -1,0 +1,17 @@
+server:
+  port: 8081  # Définir le port sur lequel Spring Boot va exécuter l'application
+
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5433/student_bd  # URL de la base de données PostgreSQL
+    username: root  # Utilisateur pour se connecter à PostgreSQL
+    password: 1234  # Mot de passe pour la connexion
+    driver-class-name: org.postgresql.Driver  # Pilote JDBC pour PostgreSQL
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect  # Dialecte Hibernate pour PostgreSQL
+    hibernate:
+      ddl-auto: update  # Cette option met à jour le schéma de la base de données automatiquement
+    show-sql: true  # Affiche les requêtes SQL générées par Hibernate dans les logs
+  h2:
+    console:
+      enabled: false  # Désactive la console H2, cela est utile si vous ne souhaitez pas l'utiliser

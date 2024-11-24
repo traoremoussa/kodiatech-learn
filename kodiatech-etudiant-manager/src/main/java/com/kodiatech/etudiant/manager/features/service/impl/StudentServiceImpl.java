@@ -2,9 +2,12 @@ package com.kodiatech.etudiant.manager.features.service.impl;
 
 import com.kodiatech.etudiant.manager.features.exceptions.ManagerEtudiantException;
 import com.kodiatech.etudiant.manager.features.exceptions.ManagerEtudiantNotFoundException;
+import com.kodiatech.etudiant.manager.features.model.Department;
 import com.kodiatech.etudiant.manager.features.model.Student;
+import com.kodiatech.etudiant.manager.features.repository.DepartmentRepository;
 import com.kodiatech.etudiant.manager.features.repository.StudentRepository;
 import com.kodiatech.etudiant.manager.features.service.IStudentService;
+import jakarta.persistence.EntityNotFoundException;
 import jakarta.transaction.Transactional;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -16,7 +19,7 @@ import java.util.List;
 @AllArgsConstructor
 public class StudentServiceImpl implements IStudentService {
     private final StudentRepository studentRepository;
-
+ private final DepartmentRepository departmentRepository;
 
     @Override
     public List<Student> getStudents() {
@@ -33,7 +36,19 @@ public class StudentServiceImpl implements IStudentService {
 
     @Transactional
     @Override
-    public Student addStudent( Student student) {
+
+    public Student addStudent(Student student) {
+        if (student.getDepartment() != null) {
+            // Si l'ID du département n'est pas défini, il n'existe pas encore, donc on doit le sauvegarder
+            if (student.getDepartment().getId() != null) {
+                // Vérifier si le département existe déjà dans la base de données
+                Department department=  departmentRepository.findById(student.getDepartment().getId())
+                        .orElseThrow(() -> new EntityNotFoundException("Department with id " + student.getDepartment().getId() + " not found"));
+                student.setDepartment(department);
+            }
+        }
+
+        // Sauvegarder l'étudiant (le département sera également sauvegardé si c'est un nouveau département)
         return studentRepository.save(student);
     }
 
@@ -47,9 +62,9 @@ public class StudentServiceImpl implements IStudentService {
 
             }
         //many to many
-                if(student.getCourses()!=null){
-
-                }
+//                if(student.getCourses()!=null){
+//
+//                }
         return null;
     }
 

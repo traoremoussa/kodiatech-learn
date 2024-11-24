@@ -29,7 +29,7 @@ public class StudentTest {
     @Test
     public void whenNotNullName_thenNoConstraintViolations1() {
         Student student = new Student("tra", "kaba", "M",
-                "kaba@gmail.com", "0755052865",
+                "kaba@gmail.com", "+33755052865",
                 LocalDate.of(2000, 11, 24), LocalDate.now());// set a valid first name
 
         // Validate the student object
@@ -45,7 +45,7 @@ public class StudentTest {
         // given: un Student student avec tous les attribut
         // when: student est créé
         Student student = new Student("tra", "kaba", "M",
-                "kaba@gmail.com", "0755052865",
+                "kaba@gmail.com", "+33755052865",
                 LocalDate.of(2000, 11, 24), LocalDate.now());
 
         Set<ConstraintViolation<Student>> violations = validator.validate(student);
@@ -58,7 +58,7 @@ public class StudentTest {
         // given: un Student student avec tous les attribut null lastname
         // when: student est créé
         Student student = new Student(null, "kaba", "M",
-                "kaba@gmail.com", "0755052865",
+                "kaba@gmail.com", "+33755052865",
                 LocalDate.of(2000, 11, 24), LocalDate.now());
         Set<ConstraintViolation<Student>> violations = validator.validate(student);
 
@@ -70,7 +70,7 @@ public class StudentTest {
         // given: un Student student avec tous les attribut vide lastname
         // when: student est créé
         Student student = new Student("", "kaba", "M",
-                "kaba@gmail.com", "0755052865",
+                "kaba@gmail.com", "+33755052865",
                 LocalDate.of(2000, 11, 24), LocalDate.now());
         Set<ConstraintViolation<Student>> violations = validator.validate(student);
         // then: student est pas validé par le validator avec une violation

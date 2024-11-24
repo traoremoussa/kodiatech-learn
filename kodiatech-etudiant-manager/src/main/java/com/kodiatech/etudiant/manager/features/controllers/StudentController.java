@@ -14,7 +14,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-
+import jakarta.validation.Valid;
 @RestController
 /*Controller
 @ResponseBody*/
@@ -48,9 +48,9 @@ public class StudentController {
         return ResponseEntity.ok().body(studentService.getStudents());
     }
 
-    @PostMapping
+    @PostMapping("/add")
     @ResponseStatus(HttpStatus.CREATED)
-    public Student createStudent(@RequestBody Student student) {
+    public Student createStudent(@RequestBody @Valid  Student student) {
         return studentService.addStudent(student);
     }
 

@@ -17,12 +17,13 @@ import java.util.*;
 @Entity
 public class Department {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "department_seq")
-    @SequenceGenerator(name = "department_seq", sequenceName = "department_seq", allocationSize = 1)
+//    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "department_id_seq")
+//    @SequenceGenerator(name = "department_id_seq", sequenceName = "department_id_seq", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
+
     private String name;
     private String location;
-
 
 
     //je peux passer par departement pour atteindre les listes de de teacher ou student

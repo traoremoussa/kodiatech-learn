@@ -1,6 +1,8 @@
 package com.kodiatech.etudiant.manager.features.model;
 
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -11,6 +13,7 @@ import lombok.NoArgsConstructor;
 
 import java.util.HashSet;
 import java.util.Set;
+
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
@@ -20,25 +23,26 @@ public class Course {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    private Long  id;
+    private Long id;
 
     private String title;
     private String description;
     //coef du cours ou  de   la matiere
-    private  Integer coefficient;
-
-
+    private Integer coefficient;
 
 
     // liaison
 
-    @JsonManagedReference  // Allows serialization of the course-to-student direction
-    @ManyToOne
+
+    //@JsonBackReference("teacher-course")
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "teacher_id")
     private Teacher teacher;
 
-    @ManyToMany(mappedBy = "courses")  // Indique que c'est le côté inverse de la relation
-    @JsonManagedReference  // Allows serialization of the course-to-student direction
-    private Set<Student> students = new HashSet<>();
 
+    @JsonIgnore
+//@JsonBackReference("student-course")  // Correspond à "teacher-course" dans Teacher
+    @ManyToMany(mappedBy = "courses", fetch = FetchType.LAZY)
+    private Set<Student> students = new HashSet<>();
 
 }

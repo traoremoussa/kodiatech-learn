@@ -1,8 +1,10 @@
 package com.kodiatech.etudiant.manager.features.model;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.*;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.kodiatech.etudiant.manager.auth.model.Utilisateur;
 import com.kodiatech.etudiant.manager.features.validation.PhoneNumber;
+import com.kodiatech.etudiant.manager.utils.CustomDateSerializer;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
 
@@ -24,6 +26,9 @@ import java.util.Set;
 public class Student {
 
     @Id
+
+//    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "student_id_seq")
+//    @SequenceGenerator(name = "student_id_seq", sequenceName = "student_id_seq", allocationSize = 1)
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
 
@@ -50,21 +55,24 @@ public class Student {
 
     @NotNull(message = "Date de naissance may not be null")
     @PastOrPresent(message = "Date of Birth must be in the past or present")
+
+    @JsonSerialize(using = CustomDateSerializer.class)  // Serializer personnalisé
+    @JsonFormat(pattern = "yyyy-MM-dd")  // Format de la date
     private LocalDate dateOfBirth;
 
     @NotNull(message = "enregistrement date may not be null")
-    @Future(message = "Enrollment Date must be in the future")
+    //@Future(message = "Enrollment Date must be in the future")
     private LocalDate enrollmentDate;
 
 
-    public Student(String lastName, String fistName,String sexe, String email, String phone,LocalDate dateOfBirth,LocalDate enrollmentDate) {
+    public Student(String lastName, String fistName, String sexe, String email, String phone, LocalDate dateOfBirth, LocalDate enrollmentDate) {
         this.lastName = lastName;
         this.firstName = fistName;
-        this.sexe=sexe;
+        this.sexe = sexe;
         this.email = email;
         this.phone = phone;
-        this.dateOfBirth=dateOfBirth;
-        this.enrollmentDate=enrollmentDate;
+        this.dateOfBirth = dateOfBirth;
+        this.enrollmentDate = enrollmentDate;
 
     }
 
@@ -74,8 +82,7 @@ public class Student {
     private Address adress;
 
 
-    // @JsonIgnore
-    @JsonBackReference  // Prevents infinite recursion in the student-to-course direction
+    // Prevents infinite recursion in the student-to-course direction
     //cour suivi
     @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE}, fetch = FetchType.LAZY)
     @JoinTable(
@@ -83,6 +90,7 @@ public class Student {
             joinColumns = @JoinColumn(name = "student_id"), // Colonne pour l'étudiant
             inverseJoinColumns = @JoinColumn(name = "course_id") // Colonne pour le cours
     )
+    //@JsonManagedReference("student-course")
     private Set<Course> courses = new HashSet<>();
 
 

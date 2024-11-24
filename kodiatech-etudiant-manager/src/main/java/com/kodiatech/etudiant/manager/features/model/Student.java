@@ -2,11 +2,10 @@ package com.kodiatech.etudiant.manager.features.model;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.kodiatech.etudiant.manager.auth.model.Utilisateur;
+import com.kodiatech.etudiant.manager.features.validation.PhoneNumber;
 import jakarta.persistence.*;
-import jakarta.validation.constraints.Email;
-import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.*;
 
-import jakarta.validation.constraints.Pattern;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -27,32 +26,45 @@ public class Student {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
+
+    @NotEmpty(message = "lastName may not be null")
     @Column(name = "LAST_NAME")
     private String lastName;
+
+    @NotEmpty(message = "first name may not be null")
     @Column(name = "FIRST_NAME")
     private String firstName;
 
-    @NotBlank
-    @Pattern(regexp = "^[MF]{1}$")
+
+    @Pattern(regexp = "^[MF]{1}$", message = "must match \"^[MF]{1}$\"")
     private String sexe;
 
 
-    @NotBlank
-    @Email
+    @NotEmpty
+    @Email(message = "must be a well-formed email address")
     private String email;
 
-
+    @NotEmpty(message = "Phone may not be null")
+    @PhoneNumber
     private String phone;
 
+    @NotNull(message = "Date de naissance may not be null")
+    @PastOrPresent(message = "Date of Birth must be in the past or present")
     private LocalDate dateOfBirth;
+
+    @NotNull(message = "enregistrement date may not be null")
+    @Future(message = "Enrollment Date must be in the future")
     private LocalDate enrollmentDate;
 
 
-    public Student(String lastName, String fistName, String email, String phone) {
+    public Student(String lastName, String fistName,String sexe, String email, String phone,LocalDate dateOfBirth,LocalDate enrollmentDate) {
         this.lastName = lastName;
         this.firstName = fistName;
+        this.sexe=sexe;
         this.email = email;
         this.phone = phone;
+        this.dateOfBirth=dateOfBirth;
+        this.enrollmentDate=enrollmentDate;
 
     }
 
@@ -84,6 +96,11 @@ public class Student {
 
 
     /***
+     *@NotNull: a constrained CharSequence, Collection, Map, or Array is valid as long as it’s not null, but it can be empty.
+     * @NotEmpty: a constrained CharSequence, Collection, Map, or Array is valid as long as it’s not null, and its size/length is greater than zero.
+     * @NotBlank: a constrained String is valid as long as it’s not null, and the trimmed length is greater than zero.
+     * @notnull
+    /***
      * @JsonBackReference
      * @JsonIgnore
      *
@@ -106,6 +123,16 @@ public class Student {
      The SQL Abstract Syntax Tree (AST) indicates how the query will be structured.
      The FromClause shows that it will select from the Student table,
      and it includes a join with the address and a left join with the department.
+     */
+
+
+    /**** gERER pRIMARY KEY
+     *
+     * https://thorben-janssen.com/jpa-generate-primary-keys/
+     *
+     *
+     *
+     *
      */
 
 }

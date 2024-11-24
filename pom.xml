@@ -35,6 +35,7 @@
         <module>kodiatech-kafka</module>
         <module>kodiatech-learn-gateway</module>
         <module>kodiatech-test</module>
+        <module>kodiatech-security</module>
     </modules>
 
 

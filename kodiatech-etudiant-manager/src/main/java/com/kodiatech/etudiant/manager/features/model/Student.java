@@ -3,6 +3,7 @@ package com.kodiatech.etudiant.manager.features.model;
 import com.fasterxml.jackson.annotation.*;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.kodiatech.etudiant.manager.auth.model.Utilisateur;
+import com.kodiatech.etudiant.manager.features.model.embeddbale.Address;
 import com.kodiatech.etudiant.manager.features.validation.PhoneNumber;
 import com.kodiatech.etudiant.manager.utils.CustomDateSerializer;
 import jakarta.persistence.*;
@@ -57,7 +58,7 @@ public class Student {
     @PastOrPresent(message = "Date of Birth must be in the past or present")
 
     @JsonSerialize(using = CustomDateSerializer.class)  // Serializer personnalisé
-    @JsonFormat(pattern = "yyyy-MM-dd")  // Format de la date
+    //@JsonFormat(pattern = "yyyy-MM-dd")  // Format de la date
     private LocalDate dateOfBirth;
 
     @NotNull(message = "enregistrement date may not be null")

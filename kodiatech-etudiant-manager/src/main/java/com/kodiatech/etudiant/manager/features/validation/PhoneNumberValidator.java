@@ -9,7 +9,10 @@ import java.util.regex.Pattern;
 public class PhoneNumberValidator implements ConstraintValidator<PhoneNumber, String> {
 
     // Regular expression for validating phone numbers (this example allows various formats)
-    private static final String PHONE_PATTERN = "^\\+?[1-9]\\d{1,14}$";  // E.164 format (e.g., +1234567890)
+    private static final String PHONE_PATTERN = "^(\\+33|0)(6|7)\\d{8}$";
+
+
+
 
     @Override
     public void initialize(PhoneNumber constraintAnnotation) {

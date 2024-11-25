@@ -125,7 +125,7 @@ public void testStudentValidations() {
         Set<ConstraintViolation<Student>> violations = validator.validate(student);
 
         // Assert there are no validation violations (because it's a valid student)
-        assertThat(violations).isNotEmpty();
+        assertThat(violations).isEmpty();
     }
 
     @Test

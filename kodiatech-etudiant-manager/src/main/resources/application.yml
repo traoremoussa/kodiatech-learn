@@ -2,11 +2,11 @@ spring:
   application:
      name: kodiatech-etudiant-manager
   profiles:
-    active: docker
+    active: dev #docker
 
 
 #actuator
-# Exposer tous les endpoints ( gestions des indpoint)
+# Exposer tous les endpoints (gestions des indpoint)
 #management.endpoints.web.exposure.include=*
 
 # Restreindre l'acc�s � certains endpoints

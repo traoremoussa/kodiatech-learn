@@ -1,7 +1,6 @@
-package com.kodiatech.etudiant.manager.student;
+package com.kodiatech.etudiant.manager.student.model;
 
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.kodiatech.etudiant.manager.features.model.Student;
 import com.kodiatech.etudiant.manager.features.model.embeddbale.Address;
 import org.junit.jupiter.api.Test;

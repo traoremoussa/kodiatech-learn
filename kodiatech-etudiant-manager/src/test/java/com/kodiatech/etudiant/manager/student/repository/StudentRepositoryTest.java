@@ -1,4 +1,4 @@
-package com.kodiatech.etudiant.manager.student;
+package com.kodiatech.etudiant.manager.student.repository;
 
 import com.kodiatech.etudiant.manager.features.repository.StudentRepository;
 import jakarta.transaction.Transactional;

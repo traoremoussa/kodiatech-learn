@@ -1,15 +1,13 @@
-package com.kodiatech.etudiant.manager.student;
+package com.kodiatech.etudiant.manager.student.model;
 
 import com.kodiatech.etudiant.manager.features.model.Student;
 import jakarta.validation.ConstraintViolation;
 import jakarta.validation.Validation;
 import jakarta.validation.Validator;
-import org.junit.BeforeClass;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 import java.time.LocalDate;
-import java.util.Date;
 import java.util.Set;
 
 

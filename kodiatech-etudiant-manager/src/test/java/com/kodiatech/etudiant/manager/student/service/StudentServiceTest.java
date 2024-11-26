@@ -1,4 +1,4 @@
-package com.kodiatech.etudiant.manager.student;
+package com.kodiatech.etudiant.manager.student.service;
 
 import jakarta.validation.Validation;
 import jakarta.validation.Validator;

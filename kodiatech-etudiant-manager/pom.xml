@@ -40,10 +40,12 @@
         <maven.compiler.source>21</maven.compiler.source>
         <maven.compiler.target>21</maven.compiler.target>
         <!--  sonarqub-->
-        <sonar.projectKey>your_project_key</sonar.projectKey>
-        <sonar.host.url>http://localhost:9000</sonar.host.url>
-        <sonar.login>squ_6a6790c2701c308c000793b508342c92ded1f1c8</sonar.login>
-
+<!--        <sonar.projectKey>kodiatech-etudiant-manager</sonar.projectKey>-->
+<!--        <sonar.host.url>http://localhost:9000</sonar.host.url>-->
+<!--        <sonar.login>squ_6a6a322cb345193810b45115b555df696beecb53</sonar.login>-->
+        <sonar.projectKey>${env.SONAR_PROJECT_KEY}</sonar.projectKey>
+        <sonar.host.url>${env.SONAR_HOST_URL}</sonar.host.url>
+        <sonar.login>${env.SONAR_LOGIN}</sonar.login>
     </properties>
     <dependencies>
         <!-- -**************************COMMUN ***************************- -->

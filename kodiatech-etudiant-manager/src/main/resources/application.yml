@@ -2,7 +2,7 @@ spring:
   application:
      name: kodiatech-etudiant-manager
   profiles:
-    active: dev #docker
+    active: docker  #dev
 
 
 #actuator

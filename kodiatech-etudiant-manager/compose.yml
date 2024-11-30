@@ -8,3 +8,28 @@ services:
       - 'POSTGRES_USER=root'
     ports:
       - '5433:5432'  # Assurez-vous que le port 5433 est mappé
+    volumes:
+      - 'db_data:/var/lib/postgresql/data'
+
+
+  sonarqube:
+     container_name: sonarqube
+     image: 'sonarqube:community'
+     depends_on:
+       - postgres
+
+     environment:
+       - 'SONARQUBE_JDBC_USERNAME=root'
+       - 'SONARQUBE_JDBC_PASSWORD=1234'
+       - 'SONARQUBE_JDBC_URL=jdbc:postgresql://postgres:5433/sonarqube'
+     ports:
+       - '9000:9000'
+     volumes:
+       - 'sonarqube_data:/opt/sonarqube/data'
+       - 'sonarqube_logs:/opt/sonarqube/logs'
+       - 'sonarqube_extensions:/opt/sonarqube/extensions'
+volumes:
+  sonarqube_data:
+  sonarqube_logs:
+  sonarqube_extensions:
+  db_data:

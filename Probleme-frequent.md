@@ -1,0 +1,1 @@
+1. N+1 [article](https://www.baeldung.com/spring-hibernate-n1-problem)

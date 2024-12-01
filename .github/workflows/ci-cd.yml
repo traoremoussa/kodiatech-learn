@@ -40,23 +40,27 @@ jobs:
       - name: Run tests
         run: mvn -f $STUDENT_MANAGE/pom.xml test
 
-#  sonar:
-#    runs-on: ubuntu-latest
-#    needs: build
-#
-#    steps:
-#      # Étape 1 : Vérifier le code
-#      - name: Checkout code
-#        uses: actions/checkout@v3
-#
-#      # Étape 2 : Configurer JDK
-#      - name: Set up JDK
-#        uses: actions/setup-java@v3
-#        with:
-#          distribution: 'temurin'
-#          java-version: '21'
-#
-#      # Étape 3 : Analyser avec SonarQube
-#      - name: SonarQube Scan
-#        run: mvn sonar:sonar
-#
+  sonar:
+    runs-on: ubuntu-latest
+    needs: build
+
+    steps:
+      # Étape 1 : Vérifier le code
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      # Étape 2 : Configurer JDK
+      - name: Set up JDK
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'temurin'
+          java-version: '21'
+
+      # Étape 3 : Configurer les variables d'environnement pour SonarQube
+      - name: Set up SonarQube environment variables
+        run: |
+          echo "SONAR_TOKEN=${{ secrets.SONAR_TOKEN }}" >> $GITHUB_ENV
+
+      # Étape 4 : Analyser avec SonarQube
+      - name: SonarQube Scan
+        run: mvn sonar:sonar

@@ -1,0 +1,62 @@
+name: Kodiatech-lean cicd pipline
+env:
+  STUDENT_MANAGE: "kodiatech-etudiant-manager"
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - '$STUDENT_MANAGE/**'
+      - '.github/workflows/**'
+  pull_request:
+    branches:
+      - main
+    paths:
+      - '$STUDENT_MANAGE/**'
+      - '.github/workflows/**'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Étape 1 : Vérifier le code
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      # Étape 2 : Configurer JDK
+      - name: Set up JDK
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'temurin'
+          java-version: '21' # Changez selon votre version de Java
+
+      # Étape 3 : Installer les dépendances et compiler le code
+      - name: Install dependencies and build
+        run: mvn -f $STUDENT_MANAGE/pom.xml clean install
+
+      # Étape 4 : Exécuter les tests
+      - name: Run tests
+        run: mvn -f $STUDENT_MANAGE/pom.xml test
+
+#  sonar:
+#    runs-on: ubuntu-latest
+#    needs: build
+#
+#    steps:
+#      # Étape 1 : Vérifier le code
+#      - name: Checkout code
+#        uses: actions/checkout@v3
+#
+#      # Étape 2 : Configurer JDK
+#      - name: Set up JDK
+#        uses: actions/setup-java@v3
+#        with:
+#          distribution: 'temurin'
+#          java-version: '21'
+#
+#      # Étape 3 : Analyser avec SonarQube
+#      - name: SonarQube Scan
+#        run: mvn sonar:sonar
+#

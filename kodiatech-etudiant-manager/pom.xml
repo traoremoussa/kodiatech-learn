@@ -41,9 +41,9 @@
         <maven.compiler.target>21</maven.compiler.target>
         <!--  sonarqub found in setting.xm file-->
 
-        <sonar.projectKey>${sonar.projectKey}</sonar.projectKey>
-        <sonar.host.url>${sonar.host.url}</sonar.host.url>
-        <sonar.login>${sonar.login}</sonar.login>
+<!--        <sonar.projectKey>${sonar.projectKey}</sonar.projectKey>-->
+<!--        <sonar.host.url>${sonar.host.url}</sonar.host.url>-->
+<!--        <sonar.login>${sonar.login}</sonar.login>-->
 
         <!-- Chemin du rapport de couverture JaCoCo -->
         <sonar.jacoco.reportPaths>target/jacoco.exec</sonar.jacoco.reportPaths>

@@ -59,7 +59,9 @@ jobs:
       # Étape 3 : Configurer les variables d'environnement pour SonarQube
       - name: Set up SonarQube environment variables
         run: |
-          echo "SONAR_TOKEN=${{ secrets.SONAR_TOKEN }}" >> $GITHUB_ENV
+          echo "SONAR_PROJECT_KEY=${{ secrets.SONAR_PROJECT_KEY }}" >> $GITHUB_ENV
+          echo "SONAR_HOST_URL=${{ secrets.SONAR_HOST_URL }}" >> $GITHUB_ENV
+          echo "SONAR_LOGIN=${{ secrets.SONAR_TOKEN }}" >> $GITHUB_ENV
 
       # Étape 4 : Analyser avec SonarQube
       - name: SonarQube Scan

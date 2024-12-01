@@ -9,6 +9,9 @@
 - maven 
   - mvn clean verify sonar:sonar -Dmaven.test.skip=true
   - mvn sonar:sonar -Dsonar.project.settings=sonar-project.properties -Dmaven.test.skip=true
+- 
+- Docker
   - docker-compose down
   - docker-compose up -d
-
+- aws 
+  [sonar](https://www.youtube.com/watch?v=AYl3A3ac7bg&ab_channel=DevOpsCoach)

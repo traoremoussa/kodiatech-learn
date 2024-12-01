@@ -56,13 +56,13 @@ jobs:
           distribution: 'temurin'
           java-version: '21'
 
-      # Étape 3 : Configurer les variables d'environnement pour SonarQube
+      # Step 3: Set up SonarQube environment variables
       - name: Set up SonarQube environment variables
         run: |
           echo "SONAR_PROJECT_KEY=${{ secrets.SONAR_PROJECT_KEY }}" >> $GITHUB_ENV
           echo "SONAR_HOST_URL=${{ secrets.SONAR_HOST_URL }}" >> $GITHUB_ENV
           echo "SONAR_LOGIN=${{ secrets.SONAR_TOKEN }}" >> $GITHUB_ENV
 
-      # Étape 4 : Analyser avec SonarQube
+      # Step 4: Run SonarQube analysis
       - name: SonarQube Scan
-        run: mvn sonar:sonar
+        run: mvn sonar:sonar -Dsonar.projectKey=${{ secrets.SONAR_PROJECT_KEY }} -Dsonar.host.url=${{ secrets.SONAR_HOST_URL }} -Dsonar.login=${{ secrets.SONAR_TOKEN }}

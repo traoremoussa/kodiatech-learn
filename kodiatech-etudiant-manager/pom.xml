@@ -46,7 +46,7 @@
 <!--        <sonar.login>${sonar.login}</sonar.login>-->
 
         <!-- Chemin du rapport de couverture JaCoCo -->
-        <sonar.jacoco.reportPaths>target/jacoco.exec</sonar.jacoco.reportPaths>
+<!--        <sonar.jacoco.reportPaths>target/jacoco.exec</sonar.jacoco.reportPaths>-->
     </properties>
     <dependencies>
         <!-- -**************************COMMUN ***************************- -->

@@ -114,7 +114,7 @@ public void testStudentValidations() {
         student.setFirstName("John");
         student.setSexe("M");
         student.setEmail("john.doe@example.com");
-        student.setPhone("123456789");
+        student.setPhone("+33612345678");
         student.setDateOfBirth(LocalDate.of(2000, 1, 1));
         //pour future 2020 est ancien
         student.setEnrollmentDate(LocalDate.of(2020, 9, 1));
@@ -134,7 +134,7 @@ public void testStudentValidations() {
         student.setFirstName("John");
         student.setSexe("M");
         student.setEmail("john.doe@example.com");
-        student.setPhone("123456789");
+        student.setPhone("0612345678");
         student.setDateOfBirth(LocalDate.of(2000, 1, 1));
         //pour future 2020 est ancien
         student.setEnrollmentDate(LocalDate.of(2025, 9, 1));

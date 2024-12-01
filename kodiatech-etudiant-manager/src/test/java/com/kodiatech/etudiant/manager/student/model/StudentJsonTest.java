@@ -1,6 +1,8 @@
 package com.kodiatech.etudiant.manager.student.model;
 
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.kodiatech.etudiant.manager.features.model.Student;
 import com.kodiatech.etudiant.manager.features.model.embeddbale.Address;
 import org.junit.jupiter.api.Test;
@@ -9,6 +11,7 @@ import org.springframework.boot.test.autoconfigure.json.JsonTest;
 import org.springframework.boot.test.json.JacksonTester;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 import static org.assertj.core.api.AssertionsForInterfaceTypes.assertThat;
 
@@ -22,7 +25,7 @@ public class StudentJsonTest {
 
 
     @Test
-    void shouldSerializePost() throws Exception {
+    void shouldSerializeStudent() throws Exception {
         Student student = new Student("mama", "kaba", "M",
                 "kaba@gmail.com", "+33755052865",
                 LocalDate.of(2000, 11, 24), LocalDate.now());
@@ -64,25 +67,27 @@ public class StudentJsonTest {
 
 
     }
+
     @Test
-    void shouldDeserializePost() throws Exception {
+    void shouldDeserializeStudent() throws Exception {
         Student student = new Student("mama", "kaba", "M",
                 "kaba@gmail.com", "+33755052865",
-                LocalDate.of(2000, 11, 24), LocalDate.now());
+                LocalDate.parse("24-11-2000", DateTimeFormatter.ofPattern("dd-MM-yyyy")), LocalDate.now());
 
-        Address adress = Address.builder()
+        Address address = Address.builder()
                 .name("Thomas edison bat a")
                 .number("68")
                 .codePostal("Thomas edison bat a")
                 .city("Toulouse")
                 .country("France")
                 .build();
-        student.setAdress(adress);
-        // Use Jackson to get the actual expected JSON
-        String expected2 = jacksonTester.write(student).getJson();
+        student.setAdress(address);
+
+        // Serialize the student object to JSON
+        String expectedJson = jacksonTester.write(student).getJson();
 
         // Deserialize the JSON back into a Student object
-        Student actualStudent = jacksonTester.parseObject(expected2);
+        Student actualStudent = jacksonTester.parseObject(expectedJson);
 
         // Perform assertions to ensure the deserialized values are correct
         assertThat(actualStudent.getFirstName()).isEqualTo("kaba");
@@ -91,6 +96,18 @@ public class StudentJsonTest {
         assertThat(actualStudent.getAdress().name()).isEqualTo("Thomas edison bat a");
         assertThat(actualStudent.getAdress().city()).isEqualTo("Toulouse");
         assertThat(actualStudent.getAdress().country()).isEqualTo("France");
+    }
+
+    @Test
+    void deserializeStudent() throws JsonProcessingException {
+        // Configure the ObjectMapper with the date format
+        ObjectMapper objectMapper = new ObjectMapper();
+
+
+        // Deserialization example
+        String json = "{ \"firstName\": \"mama\", \"lastName\": \"kaba\", \"gender\": \"M\", \"email\": \"kaba@gmail.com\", \"phoneNumber\": \"+33755052865\", \"dateOfBirth\": \"24-11-2000\", \"registrationDate\": \"01-12-2024\" }";
+
+
     }
 
 }

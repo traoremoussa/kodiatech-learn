@@ -57,8 +57,9 @@ public class Student {
     @NotNull(message = "Date de naissance may not be null")
     @PastOrPresent(message = "Date of Birth must be in the past or present")
 
-    @JsonSerialize(using = CustomDateSerializer.class)  // Serializer personnalisé
+   // @JsonSerialize(using = CustomDateSerializer.class)  // Serializer personnalisé
     //@JsonFormat(pattern = "yyyy-MM-dd")  // Format de la date
+    @JsonFormat(pattern = "dd-MM-yyyy")  // Specify the date format here
     private LocalDate dateOfBirth;
 
     @NotNull(message = "enregistrement date may not be null")

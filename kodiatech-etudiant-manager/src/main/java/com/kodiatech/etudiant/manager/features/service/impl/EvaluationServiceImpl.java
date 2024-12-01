@@ -5,11 +5,12 @@ import com.kodiatech.etudiant.manager.features.repository.EvaluationRepository;
 import com.kodiatech.etudiant.manager.features.service.IEvaluationService;
 import jakarta.transaction.Transactional;
 import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 @Service
-@AllArgsConstructor
+@RequiredArgsConstructor
 public class EvaluationServiceImpl implements IEvaluationService {
 
     private final EvaluationRepository evaluationRepository;

@@ -44,6 +44,9 @@
         <sonar.projectKey>${sonar.projectKey}</sonar.projectKey>
         <sonar.host.url>${sonar.host.url}</sonar.host.url>
         <sonar.login>${sonar.login}</sonar.login>
+
+        <!-- Chemin du rapport de couverture JaCoCo -->
+        <sonar.jacoco.reportPaths>target/jacoco.exec</sonar.jacoco.reportPaths>
     </properties>
     <dependencies>
         <!-- -**************************COMMUN ***************************- -->
@@ -135,6 +138,23 @@
                     </excludes>
                 </configuration>
             </plugin>
+
+            <!-- Plugin JaCoCo pour générer les rapports de couverture de code -->
+<!--            <plugin>-->
+<!--                <groupId>org.jacoco</groupId>-->
+<!--                <artifactId>jacoco-maven-plugin</artifactId>-->
+<!--                <version>0.8.7</version> &lt;!&ndash; Vérifiez la dernière version &ndash;&gt;-->
+<!--                <executions>-->
+<!--                    <execution>-->
+<!--                        <goals>-->
+<!--                            <goal>prepare-agent</goal> &lt;!&ndash; Prépare l'agent JaCoCo pendant les tests &ndash;&gt;-->
+<!--                            <goal>report</goal> &lt;!&ndash; Générez le rapport de couverture &ndash;&gt;-->
+<!--                        </goals>-->
+<!--                    </execution>-->
+<!--                </executions>-->
+<!--            </plugin>-->
+
+
             <!-- sonarqube -->
             <plugin>
                 <groupId>org.sonarsource.scanner.maven</groupId>

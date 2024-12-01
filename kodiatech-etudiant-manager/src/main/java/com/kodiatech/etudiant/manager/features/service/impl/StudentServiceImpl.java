@@ -10,28 +10,29 @@ import com.kodiatech.etudiant.manager.features.service.IStudentService;
 import jakarta.persistence.EntityNotFoundException;
 import jakarta.transaction.Transactional;
 import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @Service
-@AllArgsConstructor
+@RequiredArgsConstructor
 public class StudentServiceImpl implements IStudentService {
     private final StudentRepository studentRepository;
- private final DepartmentRepository departmentRepository;
+    private final DepartmentRepository departmentRepository;
 
     @Override
     public List<Student> getStudents() {
         //return List.of(new Student("etu1","eut12","mail@gmai.com","070808") );
-        List<Student> list=new ArrayList<>();
-         studentRepository.findAll().forEach(list::add);
+        List<Student> list = new ArrayList<>();
+        studentRepository.findAll().forEach(list::add);
         return list;
     }
+
     public String hello() {
         return "hello toulouse ok gg";
     }
-
 
 
     @Transactional
@@ -42,7 +43,7 @@ public class StudentServiceImpl implements IStudentService {
             // Si l'ID du département n'est pas défini, il n'existe pas encore, donc on doit le sauvegarder
             if (student.getDepartment().getId() != null) {
                 // Vérifier si le département existe déjà dans la base de données
-                Department department=  departmentRepository.findById(student.getDepartment().getId())
+                Department department = departmentRepository.findById(student.getDepartment().getId())
                         .orElseThrow(() -> new EntityNotFoundException("Department with id " + student.getDepartment().getId() + " not found"));
                 student.setDepartment(department);
             }
@@ -54,13 +55,13 @@ public class StudentServiceImpl implements IStudentService {
 
     @Transactional
     @Override
-    public Student updateStudent(Long id,Student student) {
-       Student studentLoad= studentRepository.findById(id).orElseThrow(()-> new ManagerEtudiantException("not-fund objet"));
+    public Student updateStudent(Long id, Student student) {
+        Student studentLoad = studentRepository.findById(id).orElseThrow(() -> new ManagerEtudiantException("not-fund objet"));
 
         //manytone mais pas obligatoire
-       if(student.getDepartment()!=null){
+        if (student.getDepartment() != null) {
 
-            }
+        }
         //many to many
 //                if(student.getCourses()!=null){
 //
@@ -75,14 +76,14 @@ public class StudentServiceImpl implements IStudentService {
 
     @Override
     public Student fetchStudentByid(Long id) {
-        return studentRepository.findById(id).orElseThrow(()-> new ManagerEtudiantNotFoundException("not-fund stdent {} "+id));
+        return studentRepository.findById(id).orElseThrow(() -> new ManagerEtudiantNotFoundException("not-fund stdent {} " + id));
     }
 
     @Override
     public List<Student> fetchStudentByName(String name) {
-        List<Student>list= studentRepository.findByLastName(name);
-        if(list.isEmpty()){
-            throw  new ManagerEtudiantNotFoundException("aucun etudiant n'a ce nom : "+name);
+        List<Student> list = studentRepository.findByLastName(name);
+        if (list.isEmpty()) {
+            throw new ManagerEtudiantNotFoundException("aucun etudiant n'a ce nom : " + name);
         }
         return list;
     }

@@ -36,6 +36,7 @@
         <module>kodiatech-learn-gateway</module>
         <module>kodiatech-test</module>
         <module>kodiatech-security</module>
+        <module>kodiatech-task</module>
     </modules>
 
 

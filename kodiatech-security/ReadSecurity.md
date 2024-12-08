@@ -23,3 +23,5 @@
 - [Bootstrapping](https://blog.stackademic.com/bootstrapping-your-application-with-innobridge-security-ae79b6b51f3f)
 2. 
 [Dan Vega OAuth2](https://www.youtube.com/watch?v=us0VjFiHogo&ab_channel=DanVega)
+3. Security api key spring cloud gateway
+[java texhie](https://www.youtube.com/watch?v=g4As3PLg6Ts&ab_channel=JavaTechie)

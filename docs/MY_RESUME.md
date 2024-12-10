@@ -31,3 +31,20 @@ This is a sample repository to demonstrate some of the common antipatterns in Sp
   - Hexagonal
   - Ports & Adapters
   - Clean Code
+ 
+
+
+
+
+
+
+
+
+GET    /utilisateurs            // Récupérer tous les utilisateurs
+POST   /utilisateurs            // Créer un utilisateur
+GET    /utilisateurs/{id}       // Récupérer un utilisateur par ID
+PUT    /utilisateurs/{id}       // Mettre à jour un utilisateur par ID
+DELETE /utilisateurs/{id}       // Supprimer un utilisateur par ID
+
+GET    /utilisateurs/{id}/commandes   // Récupérer les commandes d'un utilisateur
+POST   /utilisateurs/{id}/commandes  // Créer une commande pour un utilisateur

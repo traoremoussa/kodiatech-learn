@@ -9,7 +9,6 @@ import com.kodiatech.etudiant.manager.features.repository.StudentRepository;
 import com.kodiatech.etudiant.manager.features.service.IStudentService;
 import jakarta.persistence.EntityNotFoundException;
 import jakarta.transaction.Transactional;
-import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

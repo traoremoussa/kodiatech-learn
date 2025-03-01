@@ -1,19 +1,15 @@
 package com.kodiatech.etudiant.manager.features.model;
 
-import com.fasterxml.jackson.annotation.*;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.kodiatech.etudiant.manager.auth.model.Utilisateur;
 import com.kodiatech.etudiant.manager.features.model.embeddbale.Address;
 import com.kodiatech.etudiant.manager.features.validation.PhoneNumber;
-import com.kodiatech.etudiant.manager.utils.CustomDateSerializer;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
-
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
 
 import java.time.LocalDate;
 import java.util.HashSet;
@@ -24,6 +20,7 @@ import java.util.Set;
 @Builder
 @Data
 @Entity
+@Table(indexes = @Index(name = "idx_email", columnList = "email"))
 public class Student {
 
     @Id

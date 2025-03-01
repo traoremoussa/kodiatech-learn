@@ -1,8 +1,6 @@
 package com.kodiatech.etudiant.manager.features.model;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.kodiatech.etudiant.manager.auth.model.Utilisateur;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
@@ -12,8 +10,6 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
-
 
 import java.time.LocalDate;
 import java.util.HashSet;

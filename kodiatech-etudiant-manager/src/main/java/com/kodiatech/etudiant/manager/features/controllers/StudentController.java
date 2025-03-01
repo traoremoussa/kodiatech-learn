@@ -4,17 +4,15 @@ import com.kodiatech.etudiant.manager.features.exceptions.ManagerBadRequetExcept
 import com.kodiatech.etudiant.manager.features.model.Course;
 import com.kodiatech.etudiant.manager.features.model.Student;
 import com.kodiatech.etudiant.manager.features.service.IStudentService;
-
 import io.micrometer.common.util.StringUtils;
+import jakarta.validation.Valid;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import jakarta.validation.Valid;
 @RestController
 /*Controller
 @ResponseBody*/

@@ -1,0 +1,1 @@
+[strust 2 hibernate](https://github.com/zubayer-ahamed/struts_hibernate_crud/blob/master/src/java/controller/ProductController.java)

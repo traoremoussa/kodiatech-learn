@@ -1,7 +1,6 @@
 package com.kodiatech.etudiant.manager.features.service;
 
 import com.kodiatech.etudiant.manager.features.model.Student;
-import org.springframework.stereotype.Service;
 
 import java.util.List;
 

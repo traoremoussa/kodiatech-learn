@@ -3,7 +3,6 @@ package com.kodiatech.etudiant.manager.features.service.impl;
 import com.kodiatech.etudiant.manager.features.model.Department;
 import com.kodiatech.etudiant.manager.features.repository.DepartmentRepository;
 import com.kodiatech.etudiant.manager.features.service.IDepartmentService;
-import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

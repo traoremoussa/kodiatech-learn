@@ -1,7 +1,6 @@
 package com.kodiatech.etudiant.manager.features.model.embeddbale;
 
 import jakarta.persistence.Column;
-import jakarta.persistence.Embeddable;
 
 public record Phone(
         String type,

@@ -1,6 +1,7 @@
 package com.kodiatech.learn.algorithm.arbre;
 
-import java.util.*;
+import java.util.Set;
+import java.util.TreeSet;
 
 public class ArbreBinaireRecherche {
     // Utilisation d'un TreeSet pour implémenter un arbre binaire de recherche

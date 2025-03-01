@@ -2,7 +2,6 @@ package model;
 
 import jakarta.persistence.*;
 
-
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 import java.util.Date;

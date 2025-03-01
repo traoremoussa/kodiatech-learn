@@ -1,7 +1,6 @@
 package com.kodiatech.etudiant.manager.features.validation;
 
 import com.kodiatech.etudiant.manager.features.model.Student;
-
 import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;
 
